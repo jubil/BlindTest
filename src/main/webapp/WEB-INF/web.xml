@@ -29,4 +29,14 @@
     <servlet-name>Connection</servlet-name>
     <url-pattern>/Connection</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Inscription</display-name>
+    <servlet-name>Inscription</servlet-name>
+    <servlet-class>servlet.Inscription</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Inscription</servlet-name>
+    <url-pattern>/Inscription</url-pattern>
+  </servlet-mapping>
 </web-app>
