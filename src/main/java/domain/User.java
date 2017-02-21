@@ -1,13 +1,18 @@
 package domain;
 
-public class User {
+import java.io.Serializable;
 
-	private String pseudo, password;
+public class User implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	private String pseudo, password;	
+	private Stats stats;
 	
 	public User(String pseudo, String password) {
 		super();
 		this.pseudo = pseudo;
 		this.password = password;
+		this.stats = new Stats();
 	}
 
 	public String getPseudo() {
@@ -26,4 +31,8 @@ public class User {
 		this.password = password;
 	}	
 	
+	//TODO isUserExist
+	public boolean isUserExist(String pseudo){
+		return false;
+	}
 }
