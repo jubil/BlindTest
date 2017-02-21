@@ -10,9 +10,13 @@ public class StatsUser implements Serializable{
 	private Date dateInscription;
 	
 	public StatsUser() {
+		init();
+	}
+
+	public void init() {
 		dateInscription = new Date();
 		chansonsTrouvees = 0;
-		chansonsNonTrouvees = 0;
+		chansonsNonTrouvees = 0;		
 	}
 
 	public int getChansonsTrouvees() {
@@ -40,8 +44,8 @@ public class StatsUser implements Serializable{
 	}
 	
 	/**
-	 * Incrémente les statistiques en fonction de si le joueur trouve une bonne réponse
-	 * @param trouve Mettre true si le joueur trouve la bonne réponse
+	 * Incrémente les statistiques en fonction de si le joueur trouve une bonne réponse.
+	 * @param trouve Mettre true si le joueur trouve la bonne réponse.
 	 */
 	public void trouverChanson(boolean trouve){
 		if(trouve){
