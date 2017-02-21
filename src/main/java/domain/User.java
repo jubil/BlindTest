@@ -6,13 +6,13 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private String pseudo, password;	
-	private Stats stats;
+	private StatsUser stats;
 	
 	public User(String pseudo, String password) {
 		super();
 		this.pseudo = pseudo;
 		this.password = password;
-		this.stats = new Stats();
+		this.stats = new StatsUser();
 	}
 
 	public String getPseudo() {
