@@ -9,7 +9,6 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  <!-- Coucou -->
   <servlet>
     <description></description>
     <display-name>Index</display-name>
@@ -39,15 +38,5 @@
   <servlet-mapping>
     <servlet-name>Inscription</servlet-name>
     <url-pattern>/Inscription</url-pattern>
-  </servlet-mapping>
-    <servlet>
-    <description></description>
-    <display-name>GestionPartie</display-name>
-    <servlet-name>GestionPartie</servlet-name>
-    <servlet-class>servlet.GestionPartie</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>GestionPartie</servlet-name>
-    <url-pattern>/GestionPartie</url-pattern>
   </servlet-mapping>
 </web-app>

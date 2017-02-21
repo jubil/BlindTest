@@ -29,8 +29,12 @@ public class User implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}	
+	}
 	
+	public StatsUser getStats() {
+		return stats;
+	}
+
 	//TODO isUserExist
 	public boolean isUserExist(String pseudo){
 		return false;
