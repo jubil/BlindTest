@@ -38,9 +38,9 @@ public class GestionPartie_json extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession();
 		
-		// TODO : a supprimer une fois connexion operationnel
-		//out.print("<br>Served at: " + request.getContextPath());
-		//session.setAttribute("pseudo", "Matthieu");
+		session.setAttribute("partie", partieCourante);
+		
+		partieCourante.synchronisation();
 		
 		String pseudo = (String) session.getAttribute("pseudo");
 		
@@ -48,11 +48,6 @@ public class GestionPartie_json extends HttpServlet {
 			pseudo = "Invité_" + new Date().getTime();
 			session.setAttribute("pseudo", pseudo);
 		}
-
-		// TODO : a supprimé quand op
-		//out.print("<br>Pseudo : " + pseudo);
-		//out.print("<br>Date : " + new Date().getTime());
-		//out.println("<br>" + partieCourante.getChanson(pseudo));
 		
 		out.println(partieCourante.getChanson(pseudo));
 		
