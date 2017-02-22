@@ -1,6 +1,9 @@
 package domain;
 
+import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
+
 
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -36,15 +39,39 @@ public class User implements Serializable {
 	}
 
 	//TODO isUserExist
-	public boolean isUserExist(String pseudo){
-		return false;
-	}
-
-	//TODO connection
-	public static boolean connect(String pseudo, String password) {
+	public static boolean isUserExist(String pseudo){
 		if(pseudo.equals("admin")){
 			return true;
 		}
 		return false;
 	}
+
+	//TODO connection
+	public static boolean connect(String pseudo, String password) {
+		//dataHandler.connect(pseudo, password);
+		if(pseudo.equals("admin")){
+			return true;
+		}
+		return false;
+	}
+	
+	//TODO inscription
+		public static void inscription(String pseudo, String string) {
+			//Verifier si le pseudo existe
+			if(isUserExist(pseudo)){
+				System.out.println(pseudo + " éxiste déjà");
+				return;
+			}
+			//Partie de test. A remplacer par le Handler
+			/*
+			new File("BlindTest/users/").mkdirs();
+			File f = new File("BlindTest/users/"+pseudo+".user");
+			System.out.println(f.getAbsolutePath());
+			
+			try {
+				f.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}*/
+		}
 }

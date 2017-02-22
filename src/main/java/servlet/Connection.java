@@ -32,6 +32,8 @@ public class Connection extends HttpServlet {
 			if(User.connect(pseudo, password)){
 				//L'utilisateur a le droit de se connecter
 				response.getWriter().write("Connection autorisée");
+				request.getSession().setAttribute("pseudo", pseudo);
+				
 			}else {
 				//Le couple pseudo password n'est pas correcte
 				response.getWriter().write("Echec de connection");
