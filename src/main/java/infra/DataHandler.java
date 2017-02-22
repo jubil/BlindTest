@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import domain.Chanson;
 import domain.User;
 
 public class DataHandler {
@@ -14,6 +15,11 @@ public class DataHandler {
 	
 	public void storeUser(User u){
 		
+	}
+	
+	public Chanson getRandomChanson(){
+		//TODO : renvoie une musique aleatoire
+		return null;
 	}
 	
 	public void showAllUsers() throws SQLException{

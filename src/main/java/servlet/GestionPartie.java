@@ -55,7 +55,7 @@ public class GestionPartie extends HttpServlet {
 		out.print("<br>Pseudo : " + pseudo);
 		out.print("<br>Date : " + new Date().getTime());
 		
-		out.println("<br>" + partieCourante.getMusique(pseudo));
+		out.println("<br>" + partieCourante.getChanson(pseudo));
 		
 		
 		
