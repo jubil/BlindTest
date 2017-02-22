@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
+import infra.DataHandler;
+
 public class Partie {
 
 	private ArrayList<Chanson> chansons;
@@ -15,22 +17,40 @@ public class Partie {
 	
 	public Partie() {
 		super();
-		this.chansons = this.generationPlaylist(NB_CHANSON);
+		this.chansons = this.generationPlaylist();
 		this.indexChansonCourante = 0;
 		this.scores = new HashMap<String, Integer>();
 		this.startPartieTime = new Date().getTime();
 	}
 		
 	
-	private ArrayList<Chanson> generationPlaylist(int i) {
-		// TODO Auto-generated method stub
-		return null;
+	private ArrayList<Chanson> generationPlaylist() {
+		ArrayList<Chanson> playlist = new ArrayList<Chanson>();
+		Chanson chanson;
+		boolean isIn;
+		while(playlist.size() < NB_CHANSON){
+			chanson = new DataHandler().getRandomChanson();
+			isIn = false;
+			for(int i = 0 ; i < playlist.size(); i ++){
+				if( chanson.getTitre().equals(playlist.get(i).getTitre())){
+					isIn = true;
+					break;
+				}
+			}
+			if(!isIn){
+				playlist.add(chanson);
+			}
+		}
+		return playlist;
 	}
 
 
 	public String getChanson(String pseudo) {
 		// TODO Auto-generated method stub
-		return "{Musique}";
+		return "{indexPlaylist : " + this.indexChansonCourante +
+				", chanson  : [ " + this.chansons.get(this.indexChansonCourante).toJson() +
+				"]" +
+				"}";
 	}
 
 
