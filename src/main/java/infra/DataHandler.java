@@ -19,7 +19,7 @@ public class DataHandler {
 	
 	public Chanson getRandomChanson(){
 		//TODO : renvoie une musique aleatoire
-		return null;
+		return new Chanson("Titre", "auteur", "imgAlbum", "srcMusique");
 	}
 	
 	public void showAllUsers() throws SQLException{

@@ -15,7 +15,7 @@ public class Chanson {
 		this.imgAlbum = imgAlbum;
 		this.srcMusique = srcMusique;
 		this.meilleurJoueur = null;
-		this.record = (Integer) null;
+		this.record = -1;
 	}
 
 	public String getTitre() {

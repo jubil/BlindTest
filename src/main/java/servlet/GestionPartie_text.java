@@ -15,7 +15,7 @@ import domain.Partie;
 /**
  * Servlet implementation class GestionPartie
  */
-public class GestionPartie extends HttpServlet {
+public class GestionPartie_text extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Partie partieCourante;
 	
@@ -23,7 +23,7 @@ public class GestionPartie extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GestionPartie() {
+    public GestionPartie_text() {
         super();
         partieCourante = new Partie();
         
