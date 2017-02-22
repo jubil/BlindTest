@@ -39,4 +39,12 @@ public class User implements Serializable {
 	public boolean isUserExist(String pseudo){
 		return false;
 	}
+
+	//TODO connection
+	public static boolean connect(String pseudo, String password) {
+		if(pseudo.equals("admin")){
+			return true;
+		}
+		return false;
+	}
 }
