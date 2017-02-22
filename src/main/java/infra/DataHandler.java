@@ -2,6 +2,7 @@ package infra;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -19,7 +20,7 @@ public class DataHandler {
 	}
 	
 	//OK
-	public void storeUser(User u){
+	public static void storeUser(User u){
 		if(con == null){
 			initDatabaseConnection();
 		}
@@ -35,7 +36,7 @@ public class DataHandler {
 	}
 	
 	//OK
-	private void initDatabaseConnection() {
+	private static void initDatabaseConnection() {
 		try {
 			con = DriverManager.getConnection(DATABASE_URL);
 		} catch (SQLException e) {
@@ -58,6 +59,26 @@ public class DataHandler {
 			e.printStackTrace();
 		}
     }
+
+	//A VERIFIER
+	public static boolean isUserExist(String pseudo) {
+		if(con == null){
+			initDatabaseConnection();
+		}
+		
+		try {
+			Statement statement = con.createStatement();
+			ResultSet rs = statement.executeQuery("SELECT * FROM User WHERE pseudo='"+ pseudo +"'");
+		
+			if(!rs.next()){
+				return false;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return true;
+	}
 
 	
 	

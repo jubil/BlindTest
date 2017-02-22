@@ -1,16 +1,15 @@
 package domain;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.Serializable;
+import infra.DataHandler;
 
+import java.io.Serializable;
 
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private String pseudo, password;	
+	private String pseudo, password;
 	private StatsUser stats;
-	
+
 	public User(String pseudo, String password) {
 		super();
 		this.pseudo = pseudo;
@@ -33,45 +32,31 @@ public class User implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	public StatsUser getStats() {
 		return stats;
 	}
 
-	//TODO isUserExist
-	public static boolean isUserExist(String pseudo){
-		if(pseudo.equals("admin")){
+	// TODO isUserExist
+	public static boolean isUserExist(String pseudo) {
+		return DataHandler.isUserExist(pseudo);
+	}
+
+	// TODO connection
+	public static boolean connect(String pseudo, String password) {
+		if (pseudo.equals("admin")) {
 			return true;
 		}
 		return false;
 	}
 
-	//TODO connection
-	public static boolean connect(String pseudo, String password) {
-		//dataHandler.connect(pseudo, password);
-		if(pseudo.equals("admin")){
-			return true;
+	// TODO inscription
+	public static void inscription(String pseudo, String password) {
+		// Verifier si le pseudo existe
+		if (isUserExist(pseudo)) {
+			System.out.println(pseudo + " éxiste déjà");
+			return;
 		}
-		return false;
+		DataHandler.storeUser(new User(pseudo, password));	
 	}
-	
-	//TODO inscription
-		public static void inscription(String pseudo, String string) {
-			//Verifier si le pseudo existe
-			if(isUserExist(pseudo)){
-				System.out.println(pseudo + " éxiste déjà");
-				return;
-			}
-			//Partie de test. A remplacer par le Handler
-			/*
-			new File("BlindTest/users/").mkdirs();
-			File f = new File("BlindTest/users/"+pseudo+".user");
-			System.out.println(f.getAbsolutePath());
-			
-			try {
-				f.createNewFile();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}*/
-		}
 }
