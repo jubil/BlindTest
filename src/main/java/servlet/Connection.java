@@ -1,5 +1,7 @@
 package servlet;
 
+import infra.DataHandler;
+
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -14,6 +16,8 @@ public class Connection extends HttpServlet {
        
     public Connection() {
         super();
+    	DataHandler.createNewDatabase();
+    	DataHandler.initDatabaseConnection();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
