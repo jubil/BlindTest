@@ -2,7 +2,6 @@ package infra;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -11,49 +10,55 @@ import domain.User;
 
 public class DataHandler {
 
-	private static Connection con;
-	
-	public void storeUser(User u){
-		
-	}
+	private static final String DATABASE_URL = "jdbc:sqlite:BDD.db";
+	private static Connection con = null;
 	
 	public Chanson getRandomChanson(){
 		//TODO : renvoie une musique aleatoire
 		return new Chanson("Titre", "auteur", "imgAlbum", "srcMusique");
 	}
 	
-	public void showAllUsers() throws SQLException{
+	//OK
+	public void storeUser(User u){
 		if(con == null){
-			getConnection();
+			initDatabaseConnection();
 		}
 		
-		Statement state = con.createStatement();
-		ResultSet res = state.executeQuery("SELECT pseudo, password FROM user");
-		
-		//Affichage console
+		Statement statement;
+		try {
+			statement = con.createStatement();
+			statement.execute("INSERT INTO User (pseudo,password) VALUES ('"+u.getPseudo()+"','"+u.getPassword()+"'); SELECT rowid as ROWID, * FROM User;");
+		} catch (SQLException e) {
+			System.err.println(u.getPseudo() + " ne peut pas être ajouté à la base");
+		}
 		
 	}
-
-	private void getConnection() throws SQLException {
+	
+	//OK
+	private void initDatabaseConnection() {
 		try {
-			Class.forName("org.sqlite.JDBC");
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+			con = DriverManager.getConnection(DATABASE_URL);
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		con = DriverManager.getConnection("jdbc:sqlite:SQLiteTest.db");
-		initialise();
 	}
 
-	private void initialise() throws SQLException {
-		// TODO Auto-generated method stub
-		Statement state = con.createStatement();
-		ResultSet res = state.executeQuery("SELECT name FROM sqlite_master WHERE type='table' AND name='user'");
-	
-		if(!res.next()){
-			System.out.println("Initialisation de la BD");
+	//OK
+	public static void createNewDatabase() {
+		if(con != null){
+			return;
 		}
-	}
+		try {
+			con = DriverManager.getConnection(DATABASE_URL);
+			
+			Statement statement = con.createStatement();
+			statement.execute("CREATE TABLE IF NOT EXISTS User(pseudo VARCHAR PRIMARY KEY, password VARCHAR);");
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+    }
+
 	
 	
 }
