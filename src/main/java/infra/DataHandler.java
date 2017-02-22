@@ -36,7 +36,7 @@ public class DataHandler {
 	}
 	
 	//OK
-	private static void initDatabaseConnection() {
+	public static void initDatabaseConnection() {
 		try {
 			con = DriverManager.getConnection(DATABASE_URL);
 		} catch (SQLException e) {
@@ -50,6 +50,13 @@ public class DataHandler {
 			return;
 		}
 		try {
+			try {
+				//
+				Class.forName("org.sqlite.JDBC");
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+			
 			con = DriverManager.getConnection(DATABASE_URL);
 			
 			Statement statement = con.createStatement();
@@ -69,6 +76,25 @@ public class DataHandler {
 		try {
 			Statement statement = con.createStatement();
 			ResultSet rs = statement.executeQuery("SELECT * FROM User WHERE pseudo='"+ pseudo +"'");
+		
+			if(!rs.next()){
+				return false;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return true;
+	}
+
+	public static boolean connectUser(String pseudo, String password) {
+		if(con == null){
+			initDatabaseConnection();
+		}
+		
+		try {
+			Statement statement = con.createStatement();
+			ResultSet rs = statement.executeQuery("SELECT * FROM User WHERE pseudo='"+ pseudo +"' AND password='"+password+"'");
 		
 			if(!rs.next()){
 				return false;
