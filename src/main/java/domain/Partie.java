@@ -11,12 +11,13 @@ import infra.DataHandler;
 public class Partie {
 
 	private ArrayList<Chanson> chansons;
-	private int indexChansonCourante;
+	private long indexChansonCourante;
 	private HashMap<String, Integer> scores;
 	private long startPartieTime;
-	private static final int NB_CHANSON = 10;
-	private static final int TEMPS_PAR_MUSIQUE = 30000; //ms
+	private static final int NB_CHANSON = 15;
+	private static final int TEMPS_PAR_MUSIQUE = 5000; //ms //TODO : up to 30000
 	private static final int DECALAGE_MAX_ENTRE_JOUEURS = 1000; //ms : le decalage max entre chaque joueur
+	private static final int TEMPS_ENTRE_CHANSON = 5000;
 	//new Date().getTime();
 	
 	public Partie() {
@@ -52,7 +53,10 @@ public class Partie {
 //		}
 		
 		//TODO : a supprimer quand foncitonnel
-		playlist.add(new DataHandler().getRandomChanson());
+		for(int i = 0 ; i < NB_CHANSON ; i ++){
+			playlist.add(new DataHandler().getRandomChanson());
+		}
+		
 		
 		return playlist;
 	}
@@ -61,11 +65,22 @@ public class Partie {
 	public String getChanson(String pseudo) {
 		
 		long time = new Date().getTime();
-		long index = (time - this.startPartieTime) / TEMPS_PAR_MUSIQUE;
+		this.indexChansonCourante = (time - this.startPartieTime) / TEMPS_PAR_MUSIQUE;
+
+		// on verifi si la partie est fini et qu'on demande une nouvelle chanson :
+		// on réinitialise la partie
+		if(this.indexChansonCourante >= NB_CHANSON){
+			this.reinitialisation();
+		}
+		
+		this.getWaitingTime();
+		
+		System.out.println("indexCourant : " + this.indexChansonCourante);
 		
 		// TODO verifier que le pseudo est bien enregistrer dans les joueurs;
-		return "{indexPlaylist : " + index +
-				", chanson  : [ " + this.chansons.get(this.indexChansonCourante).toJson() +
+		return "{\"indexPlaylist\" : \"" + this.indexChansonCourante +
+				"\", \"waitingTime\" : \"" + (this.getWaitingTime() ) +
+				"\", \"chanson\" : [" + this.chansons.get((int)this.indexChansonCourante).toJson() +
 				"]" +
 				"}";		
 	}
@@ -75,29 +90,13 @@ public class Partie {
 	 * Attend le temps qu'il faut pour repondre a tous en meme temps;
 	 * si la partie est fini, alors réinitialise la partie
 	 */
-	public void synchronisation() {
+	public long getWaitingTime() {
 		
 		// test s'il faut attendre la prochaine vague de chanson
 		long time = new Date().getTime();
 		long tempsDepuisDebutDeLaChanson = (time - this.startPartieTime) % TEMPS_PAR_MUSIQUE;
 		
-		if( tempsDepuisDebutDeLaChanson > DECALAGE_MAX_ENTRE_JOUEURS){
-			// si pas au debut : on attend
-			System.out.println("Attente pour syncro");
-			System.out.println("declage : " + tempsDepuisDebutDeLaChanson);
-			System.out.println("Attente : " + (TEMPS_PAR_MUSIQUE - tempsDepuisDebutDeLaChanson));
-			try {
-				Thread.sleep(TEMPS_PAR_MUSIQUE - tempsDepuisDebutDeLaChanson);
-			} catch (InterruptedException e) {e.printStackTrace();}
-			System.out.println("Reprise");
-		}
-		System.out.println("Synchro");
-		
-		// on verifi si la partie est fini et qu'on demande une nouvelle chanson :
-		// on réinitialise la partie
-		if(this.indexChansonCourante >= NB_CHANSON){
-			this.reinitialisation();
-		}
+		return TEMPS_PAR_MUSIQUE - tempsDepuisDebutDeLaChanson;
 	}
 
 

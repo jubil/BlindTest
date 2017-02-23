@@ -51,11 +51,11 @@ public class Chanson {
 	}
 
 	public String toJson(){
-		return "{ adresseChanson : " + this.getSrcMusique() + 
-				", auteur : " + this.getAuteur() + 
-				", titre : " + this.getTitre() +
-				", imgAlbum : " + this.getImgAlbum() +
-				"}";
+		return "{ \"adresseChanson\" : \"" + this.getSrcMusique() + 
+				"\", \"auteur\" : \"" + this.getAuteur() + 
+				"\", \"titre\" : \"" + this.getTitre() +
+				"\", \"imgAlbum\" : \"" + this.getImgAlbum() +
+				"\"}";
 	}
 	
 	

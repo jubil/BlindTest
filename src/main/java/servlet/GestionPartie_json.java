@@ -40,8 +40,6 @@ public class GestionPartie_json extends HttpServlet {
 		
 		session.setAttribute("partie", partieCourante);
 		
-		partieCourante.synchronisation();
-		
 		String pseudo = (String) session.getAttribute("pseudo");
 		
 		if(pseudo == null){
