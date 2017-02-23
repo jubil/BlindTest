@@ -15,9 +15,9 @@ public class Partie {
 	private HashMap<String, Integer> scores;
 	private long startPartieTime;
 	private static final int NB_CHANSON = 15;
-	private static final int TEMPS_PAR_MUSIQUE = 5000; //ms //TODO : up to 30000
+	private static final int TEMPS_PAR_MUSIQUE = 15000; //ms //TODO : up to 30000
 	private static final int DECALAGE_MAX_ENTRE_JOUEURS = 1000; //ms : le decalage max entre chaque joueur
-	private static final int TEMPS_ENTRE_CHANSON = 5000;
+	private static final int TEMPS_ADDITIONNEL_PREMIERE_CHANSON = 5000;
 	//new Date().getTime();
 	
 	public Partie() {
@@ -65,8 +65,11 @@ public class Partie {
 	public String getChanson(String pseudo) {
 		
 		long time = new Date().getTime();
-		this.indexChansonCourante = (time - this.startPartieTime) / TEMPS_PAR_MUSIQUE;
-
+		this.indexChansonCourante = (time - this.startPartieTime - TEMPS_ADDITIONNEL_PREMIERE_CHANSON) / TEMPS_PAR_MUSIQUE;
+		if(this.indexChansonCourante < 0){
+			this.indexChansonCourante = 0 ;
+		}
+		
 		// on verifi si la partie est fini et qu'on demande une nouvelle chanson :
 		// on réinitialise la partie
 		if(this.indexChansonCourante >= NB_CHANSON){
@@ -80,8 +83,7 @@ public class Partie {
 		// TODO verifier que le pseudo est bien enregistrer dans les joueurs;
 		return "{\"indexPlaylist\" : \"" + this.indexChansonCourante +
 				"\", \"waitingTime\" : \"" + (this.getWaitingTime() ) +
-				"\", \"chanson\" : [" + this.chansons.get((int)this.indexChansonCourante).toJson() +
-				"]" +
+				"\", \"chanson\" : " + this.chansons.get((int)this.indexChansonCourante).toJson() +
 				"}";		
 	}
 
@@ -96,6 +98,9 @@ public class Partie {
 		long time = new Date().getTime();
 		long tempsDepuisDebutDeLaChanson = (time - this.startPartieTime) % TEMPS_PAR_MUSIQUE;
 		
+		if(this.indexChansonCourante == 0 ){
+			return TEMPS_PAR_MUSIQUE - tempsDepuisDebutDeLaChanson + TEMPS_ADDITIONNEL_PREMIERE_CHANSON;
+		}
 		return TEMPS_PAR_MUSIQUE - tempsDepuisDebutDeLaChanson;
 	}
 
@@ -114,5 +119,31 @@ public class Partie {
 	}
 
 
+	public String getStatistiqueCourant() {
+		String json = "{\"classement\" : [ ";
+		for (String key : this.scores.keySet()){
+			 json += "{";
+			 json += "\"pseudo\" : \"" + key + "\",";
+			 json += "\"point\" : \"" + scores.get(key) + "\"";
+			 json += "},";
+		}
+		
+		json = json.substring(0, json.length()-1) +  "]}";
+		
+		return json;
+	}
+
+
+	public void addResponseUser(String pseudo, int find) {
+		// TODO Ajouter la verification que l'utilisateur n'a pas déjà jouer le coup
+		if(this.scores.containsKey(pseudo)){
+			this.scores.replace(pseudo, this.scores.get(pseudo).intValue() +  find);
+		}else{
+			this.scores.put(pseudo, find);
+		}
+		
+	}
+
+	
 
 }
