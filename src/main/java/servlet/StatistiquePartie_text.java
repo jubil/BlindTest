@@ -13,44 +13,41 @@ import javax.servlet.http.HttpSession;
 import domain.Partie;
 
 /**
- * Servlet implementation class GestionPartie
+ * Servlet implementation class StatistiquePartie
  */
-public class GestionPartie_json extends HttpServlet {
+public class StatistiquePartie_text extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private Partie partieCourante;
-	
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GestionPartie_json() {
+    public StatistiquePartie_text() {
         super();
-        partieCourante = new Partie();
-        
-       
+        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("application/json");
+		// TODO Auto-generated method stub
+		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession();
+
+		Partie partieCourante = (Partie) session.getAttribute("partie");
 		
-		session.setAttribute("partie", partieCourante);
+		out.println("pseudo : " + request.getParameter("pseudo"));
+		out.println("<br>find : " + request.getParameter("find") + "<br>");
 		
-		String pseudo = (String) session.getAttribute("pseudo");
+		//TODO : test authenticité user
 		
-		if(pseudo == null){
-			pseudo = "Invité_" + new Date().getTime();
-			session.setAttribute("pseudo", pseudo);
+		try {
+			partieCourante.addResponseUser(request.getParameter("pseudo"),new Integer(request.getParameter("find")));		
+			out.println(partieCourante.getStatistiqueCourant());			
+		} catch (Exception e) {
+			out.println("{\"classement\" : []} ");;
 		}
-		
-		out.println(partieCourante.getChanson(pseudo));
-		
-		
-		
 
 	}
 

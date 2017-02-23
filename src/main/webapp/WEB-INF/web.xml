@@ -51,12 +51,32 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>GestionPartie_json</display-name>
-    <servlet-name>GestionPartie_json</servlet-name>
-    <servlet-class>servlet.GestionPartie_json</servlet-class>
+    <display-name>GestionPartie</display-name>
+    <servlet-name>GestionPartie</servlet-name>
+    <servlet-class>servlet.GestionPartie</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>GestionPartie_json</servlet-name>
-    <url-pattern>/GestionPartie_json</url-pattern>
+    <servlet-name>GestionPartie</servlet-name>
+    <url-pattern>/GestionPartie</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>StatistiquePartie</display-name>
+    <servlet-name>StatistiquePartie</servlet-name>
+    <servlet-class>servlet.StatistiquePartie</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StatistiquePartie</servlet-name>
+    <url-pattern>/StatistiquePartie</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>StatistiquePartie_text</display-name>
+    <servlet-name>StatistiquePartie_text</servlet-name>
+    <servlet-class>servlet.StatistiquePartie_text</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StatistiquePartie_text</servlet-name>
+    <url-pattern>/StatistiquePartie_text</url-pattern>
   </servlet-mapping>
 </web-app>
