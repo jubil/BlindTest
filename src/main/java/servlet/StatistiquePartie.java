@@ -41,16 +41,23 @@ public class StatistiquePartie extends HttpServlet {
 		Partie partieCourante = new GestionnaireDePartie().getPartie(""+session.getAttribute("categorie"));
 		
 		if((session.getAttribute("pseudo")+"").equals("null")){
-			session.setAttribute("pseudo", "Invité" + new Date().getTime());
+			String date = "" + new Date().getTime();
+			session.setAttribute("pseudo", "Invité" + date.substring(6, 12));
 		}
 		
 		try {
+			System.out.println("\npseudo : " + session.getAttribute("pseudo"));
+			System.out.println("partieC : " + partieCourante);
+			System.out.println("find : " + request.getParameter("find"));
+			System.out.println("findingTime : " + request.getParameter("findingTime"));
 			partieCourante.addResponseUser(
 					""+session.getAttribute("pseudo"),
+					partieCourante.getIndexChansonCourante(),
 					new Integer(request.getParameter("find")),
 					new Integer(request.getParameter("findingTime")));
 		} catch (Exception e) {
 			System.out.println("Aucune infos user");
+			e.printStackTrace();
 			}
 		
 		try {
