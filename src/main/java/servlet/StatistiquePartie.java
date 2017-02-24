@@ -39,6 +39,9 @@ public class StatistiquePartie extends HttpServlet {
 		
 		try {
 			partieCourante.addResponseUser(request.getParameter("pseudo"),new Integer(request.getParameter("find")));		
+		} catch (Exception e) {}
+		
+		try {
 			out.println(partieCourante.getStatistiqueCourant());			
 		} catch (Exception e) {
 			out.println("{\"classement\" : []} ");;
