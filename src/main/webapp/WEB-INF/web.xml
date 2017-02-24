@@ -62,18 +62,8 @@
 		<servlet-name>StatistiquePartie</servlet-name>
 		<url-pattern>/StatistiquePartie</url-pattern>
 	</servlet-mapping>
-	<servlet>
-		<description></description>
-		<display-name>StatistiquePartie_text</display-name>
-		<servlet-name>StatistiquePartie_text</servlet-name>
-		<servlet-class>servlet.StatistiquePartie_text</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>StatistiquePartie_text</servlet-name>
-		<url-pattern>/StatistiquePartie_text</url-pattern>
-	</servlet-mapping>
-	<servlet>
 
+	<servlet>
 		<description></description>
 		<display-name>AjouterMusique</display-name>
 		<servlet-name>AjouterMusique</servlet-name>
