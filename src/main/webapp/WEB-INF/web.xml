@@ -60,13 +60,13 @@
     <url-pattern>/GestionPartie_json</url-pattern>
   </servlet-mapping>
   <servlet>
-    <description></description>
-    <display-name>NewMusic</display-name>
-    <servlet-name>NewMusic</servlet-name>
-    <servlet-class>servlet.NewMusic</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>NewMusic</servlet-name>
-    <url-pattern>/NewMusic</url-pattern>
-  </servlet-mapping>
+	<description></description>
+	<display-name>AjouterMusique</display-name>
+	<servlet-name>AjouterMusique</servlet-name>
+	<servlet-class>servlet.AjouterMusique</servlet-class>
+</servlet>
+	<servlet-mapping>
+		<servlet-name>AjouterMusique</servlet-name>
+		<url-pattern>/AjouterMusique</url-pattern>
+	</servlet-mapping>
 </web-app>
