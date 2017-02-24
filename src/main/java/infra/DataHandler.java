@@ -16,7 +16,7 @@ public class DataHandler {
 	
 	public Chanson getRandomChanson(){
 		//TODO : renvoie une musique aleatoire
-		return new Chanson("Titre", "auteur", "imgAlbum", "srcMusique");
+		return new Chanson("Hangover", "Alestorm", "https://images.genius.com/2b948edc89085b00d2b46e3a27984fcd.960x960x1.jpg", "/BlindTest/chansons/Alestorm_Hangover.mp3");
 	}
 	
 	//OK
