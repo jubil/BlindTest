@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.swing.plaf.synth.SynthSpinnerUI;
 
 import domain.Partie;
 
@@ -43,11 +44,16 @@ public class StatistiquePartie extends HttpServlet {
 					request.getParameter("pseudo"),
 					new Integer(request.getParameter("find")),
 					new Integer(request.getParameter("findingTime")));
-		} catch (Exception e) {}
+		} catch (Exception e) {
+			System.out.println("Error lors de la recuperation des infos user");
+			e.printStackTrace();
+			}
 		
 		try {
 			out.println(partieCourante.getStatistiqueCourant());			
 		} catch (Exception e) {
+			System.out.println("Error lors de la recuperation des states général");
+			e.printStackTrace();
 			out.println("{\"classement\" : []} ");;
 		}
 		
