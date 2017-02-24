@@ -39,8 +39,6 @@ public class StatistiquePartie extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		Partie partieCourante = new GestionnaireDePartie().getPartie(""+session.getAttribute("categorie"));
-
-		//Partie partieCourante =  session.getAttribute("partie");
 		
 		if((session.getAttribute("pseudo")+"").equals("null")){
 			session.setAttribute("pseudo", "Invité" + new Date().getTime());
