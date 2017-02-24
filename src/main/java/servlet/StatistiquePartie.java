@@ -46,6 +46,12 @@ public class StatistiquePartie extends HttpServlet {
 		}
 		//Partie partieCourante =  session.getAttribute("partie");
 		
+		if((session.getAttribute("pseudo")+"").equals("null")){
+			session.setAttribute("pseudo", "Invité" + new Date().getTime());
+		}
+		
+		
+		
 		try {
 			partieCourante.addResponseUser(
 					""+session.getAttribute("pseudo"),
