@@ -1,5 +1,6 @@
 package infra;
 
+import domain.Chanson;
 
 public class DataHandlerTest {
 
@@ -7,7 +8,7 @@ public class DataHandlerTest {
 
 		DataHandler dh = new DataHandler();
 		dh.createNewDatabase();
-		
+//		dh.AddDefaultValues();
 //		dh.storeChanson(new Chanson("titre", "auteur", "imgAlbum", "srcMusique"));
 //		dh.storeChanson(new Chanson("titre2", "auteur", "imgAlbum", "srcMusique"));
 //		dh.storeChanson(new Chanson("titre3", "auteur", "imgAlbum", "srcMusique"));

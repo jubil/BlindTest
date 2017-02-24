@@ -25,8 +25,7 @@ public class DataHandler {
 			while (rs.next()) {
 				nbChansons = rs.getInt("c");
 			}
-			
-			int idAlea = new Random().nextInt(nbChansons);
+			int idAlea = new Random().nextInt(nbChansons)+1;
 			statement = con.createStatement();
 			rs = statement.executeQuery("SELECT * FROM Music WHERE id='"+idAlea+"';");
 			
@@ -37,9 +36,10 @@ public class DataHandler {
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
-
-		//TODO A SUPPR
-		return new Chanson("Hangover","Alestorm","https://images.genius.com/2b948edc89085b00d2b46e3a27984fcd.960x960x1.jpg","/BlindTest/chansons/Alestorm_Hangover.mp3");
+		
+		//Normalement jamais atteint
+		return null;
+		
 	}
 
 	public static void storeChanson(Chanson c) {
@@ -129,6 +129,13 @@ public class DataHandler {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public static void AddDefaultValues(){
+		storeUser(new User("admin", "admin"));
+		storeUser(new User("val", "123"));
+		
+		storeChanson(new Chanson("Hangover","Alestorm","https://images.genius.com/2b948edc89085b00d2b46e3a27984fcd.960x960x1.jpg","/BlindTest/chansons/Alestorm_Hangover.mp3"));
 	}
 
 	// A VERIFIER
