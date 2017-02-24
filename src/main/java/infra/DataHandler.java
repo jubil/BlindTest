@@ -19,6 +19,10 @@ public class DataHandler {
 		return new Chanson("Titre", "auteur", "imgAlbum", "srcMusique");
 	}
 	
+	public static void store(Chanson c){
+		//TODO : Stoquer une musique dans la base de donnée
+	}
+	
 	//OK
 	public static void storeUser(User u){
 		if(con == null){
@@ -62,6 +66,8 @@ public class DataHandler {
 			Statement statement = con.createStatement();
 			statement.execute("CREATE TABLE IF NOT EXISTS User(pseudo VARCHAR PRIMARY KEY, password VARCHAR);");
 			
+			statement = con.createStatement();
+			statement.execute("CREATE TABLE IF NOT EXISTS Music(id INT PRIMARY KEY, titre VARCHAR NOT NULL, auteur VARCHAR NOT NULL, best_score INT, best_user VARCHAR, categorie INT, fichier VARCHAR NOT NULL);");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
