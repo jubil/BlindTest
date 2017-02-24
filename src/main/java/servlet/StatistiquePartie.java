@@ -47,7 +47,6 @@ public class StatistiquePartie extends HttpServlet {
 			out.println("{\"classement\" : []} ");;
 		}
 		
-	
 	}
 
 	/**

@@ -136,12 +136,14 @@ public class Partie {
 
 	public void addResponseUser(String pseudo, int find) {
 		// TODO Ajouter la verification que l'utilisateur n'a pas déjà jouer le coup
+		if(find > 1){
+			find = find -1;
+		}
 		if(this.scores.containsKey(pseudo)){
 			this.scores.replace(pseudo, this.scores.get(pseudo).intValue() +  find);
 		}else{
 			this.scores.put(pseudo, find);
 		}
-		
 	}
 
 	
