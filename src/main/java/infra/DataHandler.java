@@ -21,6 +21,7 @@ public class DataHandler {
 	
 	public static void store(Chanson c){
 		//TODO : Stoquer une musique dans la base de donnée
+		
 	}
 	
 	//OK
