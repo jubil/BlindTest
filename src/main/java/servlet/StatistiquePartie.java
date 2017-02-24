@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.swing.plaf.synth.SynthSpinnerUI;
 
+import domain.GestionnaireDePartie;
 import domain.Partie;
 
 /**
@@ -36,12 +37,18 @@ public class StatistiquePartie extends HttpServlet {
 		response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin"));
 		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession();
-
-		Partie partieCourante = (Partie) session.getAttribute("partie");
+		
+		Partie partieCourante;
+		if(session.getAttribute("categorie") == null){
+			partieCourante = new GestionnaireDePartie().getPartie();
+		}else{
+			partieCourante = new GestionnaireDePartie().getPartie(""+session.getAttribute("categorie"));
+		}
+		//Partie partieCourante =  session.getAttribute("partie");
 		
 		try {
 			partieCourante.addResponseUser(
-					request.getParameter("pseudo"),
+					""+session.getAttribute("pseudo"),
 					new Integer(request.getParameter("find")),
 					new Integer(request.getParameter("findingTime")));
 		} catch (Exception e) {

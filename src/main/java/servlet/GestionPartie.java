@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import domain.GestionnaireDePartie;
 import domain.Partie;
 
 /**
@@ -25,7 +26,6 @@ public class GestionPartie extends HttpServlet {
      */
     public GestionPartie() {
         super();
-        partieCourante = new Partie();
     }
 
 	/**
@@ -35,21 +35,8 @@ public class GestionPartie extends HttpServlet {
 		response.setContentType("application/json");
 		response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin"));
 		PrintWriter out = response.getWriter();
-		HttpSession session = request.getSession();
-		
-		session.setAttribute("partie", partieCourante);
-		
-		String pseudo = (String) session.getAttribute("pseudo");
-		
-		if(pseudo == null){
-			pseudo = "Invité_" + new Date().getTime();
-			session.setAttribute("pseudo", pseudo);
-		}
-		
-		out.println(partieCourante.getChanson(pseudo));
-		
-		
-		
+				
+		out.println(new GestionnaireDePartie().getPartie().getChanson());
 
 	}
 

@@ -62,7 +62,7 @@ public class Partie {
 	}
 
 
-	public String getChanson(String pseudo) {
+	public String getChanson() {
 		
 		long time = new Date().getTime();
 		this.indexChansonCourante = (time - this.startPartieTime - TEMPS_ADDITIONNEL_PREMIERE_CHANSON) / TEMPS_PAR_MUSIQUE;
