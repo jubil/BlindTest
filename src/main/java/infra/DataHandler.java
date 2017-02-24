@@ -28,7 +28,8 @@ public class DataHandler {
 			Statement statement = con.createStatement();
 			statement.execute("INSERT INTO Music (titre,auteur,categorie,fichier_musique,image_album) VALUES ('t','a','"+c.getCategorie().getIdCategorie()+"','fm','fa'); SELECT rowid as ROWID, * FROM Music; VALUES ('"+c.getTitre()+"','"+c.getAuteur()+"','"+c.getSrcMusique()+"','"+c.getImgAlbum()+"'); SELECT rowid as ROWID, * FROM Music;");
 		} catch (SQLException e) {
-			System.err.println("La chanson ne peut pas être ajouté à la base");
+			//System.err.println("La chanson ne peut pas être ajouté à la base");
+			e.printStackTrace();
 		}
 		
 	}

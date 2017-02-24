@@ -20,4 +20,14 @@ public enum CategorieChanson {
 		return intitule;
 	}
 	
+	public static CategorieChanson intToCategorie(int i){
+		for(CategorieChanson cc : CategorieChanson.values()){
+			if(cc.getIdCategorie() == i){
+				return cc;
+			}
+		}
+		//Valeur par défaut
+		return FACILE;
+	}
+	
 }
