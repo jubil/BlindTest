@@ -36,6 +36,7 @@ public class GestionPartie_text extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO changer le type pour json
 		response.setContentType("text/html");
+		response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin"));
 		
 		HttpSession session = request.getSession();
 		

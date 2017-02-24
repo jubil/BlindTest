@@ -33,6 +33,7 @@ public class GestionPartie extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("application/json");
+		response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin"));
 		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession();
 		
