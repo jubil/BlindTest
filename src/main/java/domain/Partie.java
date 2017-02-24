@@ -12,7 +12,7 @@ public class Partie {
 
 	private ArrayList<Chanson> chansons;
 	private long indexChansonCourante;
-	private HashMap<String, Integer> scores;
+	private HashMap<String, HistoriqueUserPartie> scores;
 	private long startPartieTime;
 	private static final int NB_CHANSON = 15;
 	private static final int TEMPS_PAR_MUSIQUE = 15000; //ms //TODO : up to 30000
@@ -27,12 +27,17 @@ public class Partie {
 		System.out.println("nb Chanson : " + chansons.size());
 		this.indexChansonCourante = 0;
 		System.out.println("indexChansonCourante : " + indexChansonCourante);
-		this.scores = new HashMap<String, Integer>();
+		this.scores = new HashMap<String, HistoriqueUserPartie>();
 		System.out.println("nb scores : " + scores.size());
 		this.startPartieTime = new Date().getTime();
 		System.out.println("Nouvelle partie : " + this.startPartieTime);
 	}
-		
+
+
+
+	public int getIndexChansonCourante() {
+		return (int) this.indexChansonCourante;
+	}
 	
 	private ArrayList<Chanson> generationPlaylist() {
 		ArrayList<Chanson> playlist = new ArrayList<Chanson>();
@@ -65,9 +70,13 @@ public class Partie {
 	public String getChanson() {
 		
 		long time = new Date().getTime();
-		this.indexChansonCourante = (time - this.startPartieTime - TEMPS_ADDITIONNEL_PREMIERE_CHANSON) / TEMPS_PAR_MUSIQUE;
-		if(this.indexChansonCourante < 0){
+		long tempsDepuisDebutDeLaChanson = (time - (this.startPartieTime + TEMPS_ADDITIONNEL_PREMIERE_CHANSON)) % TEMPS_PAR_MUSIQUE;
+		System.out.println("tttt : " + tempsDepuisDebutDeLaChanson);
+		System.out.println("index : " + this.indexChansonCourante);
+		if((time - this.startPartieTime) < (TEMPS_PAR_MUSIQUE + TEMPS_ADDITIONNEL_PREMIERE_CHANSON)){
 			this.indexChansonCourante = 0 ;
+		}else{
+			this.indexChansonCourante = (time - TEMPS_ADDITIONNEL_PREMIERE_CHANSON - this.startPartieTime ) / TEMPS_PAR_MUSIQUE;
 		}
 		
 		// on verifi si la partie est fini et qu'on demande une nouvelle chanson :
@@ -99,6 +108,7 @@ public class Partie {
 		long tempsDepuisDebutDeLaChanson = (time - this.startPartieTime) % TEMPS_PAR_MUSIQUE;
 		
 		if(this.indexChansonCourante == 0 ){
+			System.out.println("premiere chanson");
 			return TEMPS_PAR_MUSIQUE - tempsDepuisDebutDeLaChanson + TEMPS_ADDITIONNEL_PREMIERE_CHANSON;
 		}
 		return TEMPS_PAR_MUSIQUE - tempsDepuisDebutDeLaChanson;
@@ -111,7 +121,7 @@ public class Partie {
 		System.out.println("nb Chanson : " + chansons.size());
 		this.indexChansonCourante = 0;
 		System.out.println("indexChansonCourante : " + indexChansonCourante);
-		this.scores = new HashMap<String, Integer>();
+		this.scores = new HashMap<String, HistoriqueUserPartie>();
 		System.out.println("nb scores : " + scores.size());
 		this.startPartieTime = new Date().getTime();
 		System.out.println("Nouvelle partie : " + this.startPartieTime);
@@ -124,7 +134,9 @@ public class Partie {
 		for (String key : this.scores.keySet()){
 			 json += "{";
 			 json += "\"pseudo\" : \"" + key + "\",";
-			 json += "\"point\" : \"" + scores.get(key) + "\"";
+			 json += "\"point\" : \"" + scores.get(key).getPoints() + "\",";
+			 json += "\"dernierResultat\" : \"" + scores.get(key).getDernierResultat() + "\",";
+			 json += "\"dernierTempsDeReponse\" : \"" + scores.get(key).getDernierTempsDeReponse() + "\"";
 			 json += "},";
 		}
 		
@@ -134,17 +146,16 @@ public class Partie {
 	}
 
 
-	public void addResponseUser(String pseudo, int find, int integer) {
+	public void addResponseUser(String pseudo, int index, int resultat, int tempsDeReponse) {
 		// TODO Ajouter la verification que l'utilisateur n'a pas déjà jouer le coup
-		if(find > 1){
-			find = find -1;
+		
+		if(!this.scores.containsKey(pseudo)){
+			this.scores.put(pseudo, new HistoriqueUserPartie());
 		}
-		if(this.scores.containsKey(pseudo)){
-			this.scores.replace(pseudo, this.scores.get(pseudo).intValue() +  find);
-		}else{
-			this.scores.put(pseudo, find);
-		}
+		
+		this.scores.get(pseudo).ajouterNouvelleReponse(index, resultat, tempsDeReponse);
 	}
+
 
 	
 
