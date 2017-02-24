@@ -32,13 +32,19 @@ public class StatistiquePartie extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.setContentType("application/json");
+		
+		response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin"));
+		
 		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession();
 
 		Partie partieCourante = (Partie) session.getAttribute("partie");
 		
 		try {
-			partieCourante.addResponseUser(request.getParameter("pseudo"),new Integer(request.getParameter("find")));		
+			partieCourante.addResponseUser(
+					request.getParameter("pseudo"),
+					new Integer(request.getParameter("find")),
+					new Integer(request.getParameter("findingTime")));
 		} catch (Exception e) {}
 		
 		try {

@@ -134,7 +134,7 @@ public class Partie {
 	}
 
 
-	public void addResponseUser(String pseudo, int find) {
+	public void addResponseUser(String pseudo, int find, int integer) {
 		// TODO Ajouter la verification que l'utilisateur n'a pas déjà jouer le coup
 		if(find > 1){
 			find = find -1;

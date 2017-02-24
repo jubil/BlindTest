@@ -38,12 +38,16 @@ public class StatistiquePartie_text extends HttpServlet {
 		Partie partieCourante = (Partie) session.getAttribute("partie");
 		
 		out.println("pseudo : " + request.getParameter("pseudo"));
+		out.println("<br>findingTime : " + request.getParameter("findingTime"));
 		out.println("<br>find : " + request.getParameter("find") + "<br>");
 		
 		//TODO : test authenticité user
 		
 		try {
-			partieCourante.addResponseUser(request.getParameter("pseudo"),new Integer(request.getParameter("find")));		
+			partieCourante.addResponseUser(
+					request.getParameter("pseudo"),
+					new Integer(request.getParameter("find")),
+					new Integer(request.getParameter("findingTime")));		
 			out.println(partieCourante.getStatistiqueCourant());			
 		} catch (Exception e) {
 			out.println("{\"classement\" : []} ");;
