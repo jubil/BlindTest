@@ -79,4 +79,14 @@
     <servlet-name>StatistiquePartie_text</servlet-name>
     <url-pattern>/StatistiquePartie_text</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>NewMusic</display-name>
+    <servlet-name>NewMusic</servlet-name>
+    <servlet-class>servlet.NewMusic</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NewMusic</servlet-name>
+    <url-pattern>/NewMusic</url-pattern>
+  </servlet-mapping>
 </web-app>

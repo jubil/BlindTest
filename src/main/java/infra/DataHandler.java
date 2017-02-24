@@ -19,15 +19,28 @@ public class DataHandler {
 		return new Chanson("Hangover", "Alestorm", "https://images.genius.com/2b948edc89085b00d2b46e3a27984fcd.960x960x1.jpg", "/BlindTest/chansons/Alestorm_Hangover.mp3");
 	}
 	
+	public static void storeChanson(Chanson c){
+		if(con == null){
+			initDatabaseConnection();
+		}
+		
+		try {
+			Statement statement = con.createStatement();
+			statement.execute("INSERT INTO Music (titre,auteur,categorie,fichier_musique,image_album) VALUES ('t','a','"+c.getCategorie().getIdCategorie()+"','fm','fa'); SELECT rowid as ROWID, * FROM Music; VALUES ('"+c.getTitre()+"','"+c.getAuteur()+"','"+c.getSrcMusique()+"','"+c.getImgAlbum()+"'); SELECT rowid as ROWID, * FROM Music;");
+		} catch (SQLException e) {
+			System.err.println("La chanson ne peut pas être ajouté à la base");
+		}
+		
+	}
+	
 	//OK
 	public static void storeUser(User u){
 		if(con == null){
 			initDatabaseConnection();
 		}
 		
-		Statement statement;
 		try {
-			statement = con.createStatement();
+			Statement statement = con.createStatement();
 			statement.execute("INSERT INTO User (pseudo,password) VALUES ('"+u.getPseudo()+"','"+u.getPassword()+"'); SELECT rowid as ROWID, * FROM User;");
 		} catch (SQLException e) {
 			System.err.println(u.getPseudo() + " ne peut pas être ajouté à la base");
@@ -51,7 +64,7 @@ public class DataHandler {
 		}
 		try {
 			try {
-				//
+				//Chargement du Driver
 				Class.forName("org.sqlite.JDBC");
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
@@ -62,6 +75,9 @@ public class DataHandler {
 			Statement statement = con.createStatement();
 			statement.execute("CREATE TABLE IF NOT EXISTS User(pseudo VARCHAR PRIMARY KEY, password VARCHAR);");
 			
+			statement = con.createStatement();
+			statement.execute("CREATE TABLE IF NOT EXISTS Music(id INTEGER PRIMARY KEY AUTOINCREMENT, titre VARCHAR NOT NULL, auteur VARCHAR NOT NULL, best_score INT, best_user VARCHAR, categorie INT, fichier_musique VARCHAR NOT NULL, image_album VARCHAR NOT NULL);");
+		
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
