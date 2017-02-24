@@ -45,8 +45,7 @@ public class StatistiquePartie extends HttpServlet {
 					new Integer(request.getParameter("find")),
 					new Integer(request.getParameter("findingTime")));
 		} catch (Exception e) {
-			System.out.println("Error lors de la recuperation des infos user");
-			e.printStackTrace();
+			System.out.println("Aucune infos user");
 			}
 		
 		try {
