@@ -36,7 +36,7 @@ public class GestionPartie extends HttpServlet {
 		response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin"));
 		PrintWriter out = response.getWriter();
 				
-		out.println(new GestionnaireDePartie().getPartie().getChanson());
+		out.println(new GestionnaireDePartie().getPartie(request.getParameter("categorie")).getChanson());
 
 	}
 

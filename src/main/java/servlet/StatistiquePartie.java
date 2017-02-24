@@ -38,19 +38,13 @@ public class StatistiquePartie extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession();
 		
-		Partie partieCourante;
-		if(session.getAttribute("categorie") == null){
-			partieCourante = new GestionnaireDePartie().getPartie();
-		}else{
-			partieCourante = new GestionnaireDePartie().getPartie(""+session.getAttribute("categorie"));
-		}
+		Partie partieCourante = new GestionnaireDePartie().getPartie(""+session.getAttribute("categorie"));
+
 		//Partie partieCourante =  session.getAttribute("partie");
 		
 		if((session.getAttribute("pseudo")+"").equals("null")){
 			session.setAttribute("pseudo", "Invité" + new Date().getTime());
 		}
-		
-		
 		
 		try {
 			partieCourante.addResponseUser(
