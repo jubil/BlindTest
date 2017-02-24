@@ -37,9 +37,10 @@ public class DataHandler {
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
-
-		//TODO A SUPPR
-		return new Chanson("Hangover","Alestorm","https://images.genius.com/2b948edc89085b00d2b46e3a27984fcd.960x960x1.jpg","/BlindTest/chansons/Alestorm_Hangover.mp3");
+		
+		//Normalement jamais atteint
+		return null;
+		
 	}
 
 	public static void storeChanson(Chanson c) {
@@ -126,6 +127,12 @@ public class DataHandler {
 			statement
 					.execute("CREATE TABLE IF NOT EXISTS Music(id INTEGER PRIMARY KEY AUTOINCREMENT, titre VARCHAR NOT NULL, auteur VARCHAR NOT NULL, best_score INT, best_user VARCHAR, categorie INT, fichier_musique VARCHAR NOT NULL, image_album VARCHAR NOT NULL);");
 
+			//TODO A SUPPR : quelque valeur de base dans la DB
+			storeUser(new User("admin", "admin"));
+			storeUser(new User("val", "123"));
+			
+			storeChanson(new Chanson("Hangover","Alestorm","https://images.genius.com/2b948edc89085b00d2b46e3a27984fcd.960x960x1.jpg","/BlindTest/chansons/Alestorm_Hangover.mp3"));
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
