@@ -14,13 +14,13 @@ public class HistoriqueUserPartie {
 		this.listDeReponse = new ArrayList<Integer>();
 		this.listTempsDeReponse = new ArrayList<Integer>();
 		this.points = 0 ;
-		this.indexDerniereReponse = 0;
+		this.indexDerniereReponse = -1;
 	}
 
 	public void ajouterNouvelleReponse(int index, int resultat, int tempsDeReponse){
-		if(index > indexDerniereReponse || !(resultat > 3)){
+		if(index > indexDerniereReponse && (resultat < 4)){
 			indexDerniereReponse = index;
-			this.listTempsDeReponse.add(resultat);
+			this.listDeReponse.add(resultat);
 			this.listTempsDeReponse.add(tempsDeReponse);
 			
 			if(resultat > 1){ resultat = resultat -1;}
@@ -33,7 +33,10 @@ public class HistoriqueUserPartie {
 	}
 	
 	public Integer getDernierTempsDeReponse(){
-		return listTempsDeReponse.get(listDeReponse.size()-1);
+		if(listDeReponse.size()>0){
+			return listTempsDeReponse.get(listDeReponse.size()-1);
+		}
+		return -1;
 	}
 
 	public ArrayList<Integer> getListDeReponse() {
@@ -41,7 +44,10 @@ public class HistoriqueUserPartie {
 	}
 	
 	public int getDernierResultat(){
-		return listDeReponse.get(listDeReponse.size()-1);
+		if(listDeReponse.size()>0){
+			return listDeReponse.get(listDeReponse.size()-1);
+		}
+		return -1;
 	}
 
 	public int getPoints() {

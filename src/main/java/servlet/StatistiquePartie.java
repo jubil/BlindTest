@@ -42,8 +42,10 @@ public class StatistiquePartie extends HttpServlet {
 		
 		if((session.getAttribute("pseudo")+"").equals("null")){
 			String date = "" + new Date().getTime();
-			session.setAttribute("pseudo", "Invité" + date.substring(6, 12));
+			session.setAttribute("pseudo", "Invité_" + date.substring(6, 12));
 		}
+		
+		partieCourante.addUserToPartie(""+session.getAttribute("pseudo"));
 		
 		try {
 			System.out.println("\npseudo : " + session.getAttribute("pseudo"));
@@ -57,11 +59,11 @@ public class StatistiquePartie extends HttpServlet {
 					new Integer(request.getParameter("findingTime")));
 		} catch (Exception e) {
 			System.out.println("Aucune infos user");
-			e.printStackTrace();
+			//e.printStackTrace();
 			}
 		
 		try {
-			out.println(partieCourante.getStatistiqueCourant());			
+			out.println(partieCourante.getStatistiqueCourant(""+session.getAttribute("pseudo")));			
 		} catch (Exception e) {
 			System.out.println("Error lors de la recuperation des states général");
 			e.printStackTrace();

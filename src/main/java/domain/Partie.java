@@ -59,7 +59,7 @@ public class Partie {
 		
 		//TODO : a supprimer quand foncitonnel
 		for(int i = 0 ; i < NB_CHANSON ; i ++){
-			playlist.add(new DataHandler().getRandomChanson());
+			playlist.add(DataHandler.getRandomChanson());
 		}
 		
 		
@@ -129,8 +129,17 @@ public class Partie {
 	}
 
 
-	public String getStatistiqueCourant() {
-		String json = "{\"classement\" : [ ";
+	public String getStatistiqueCourant(String pseudo) {
+		String json = "{\"yourClassement\":";
+			json += "{";
+			json += "\"pseudo\" : \"" + pseudo + "\",";
+			json += "\"point\" : \"" + scores.get(pseudo).getPoints() + "\",";
+			json += "\"dernierResultat\" : \"" + scores.get(pseudo).getDernierResultat() + "\",";
+			json += "\"dernierTempsDeReponse\" : \"" + scores.get(pseudo).getDernierTempsDeReponse() + "\"";
+			json += "},";
+		
+		 json += "\"classement\" : [ ";
+		System.out.println("keySet : " + this.scores.keySet().size());
 		for (String key : this.scores.keySet()){
 			 json += "{";
 			 json += "\"pseudo\" : \"" + key + "\",";
@@ -150,10 +159,16 @@ public class Partie {
 		// TODO Ajouter la verification que l'utilisateur n'a pas déjà jouer le coup
 		
 		if(!this.scores.containsKey(pseudo)){
-			this.scores.put(pseudo, new HistoriqueUserPartie());
+			this.addUserToPartie(pseudo);
 		}
-		
 		this.scores.get(pseudo).ajouterNouvelleReponse(index, resultat, tempsDeReponse);
+	}
+
+
+
+	public void addUserToPartie(String pseudo) {
+		this.scores.put(pseudo, new HistoriqueUserPartie());
+		System.out.println("Nouvelle Utilisateur dans la partie : " + pseudo);
 	}
 
 
