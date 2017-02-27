@@ -22,6 +22,9 @@ public class DataHandler {
 	}
 	
 	public static Chanson getRandomChanson() {
+		if (con == null) {
+			initDatabaseConnection();
+		}
 		int nbChansons = 1;
 		try{
 			//Calcul du nombre de chansons
