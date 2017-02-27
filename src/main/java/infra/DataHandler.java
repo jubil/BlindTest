@@ -16,6 +16,11 @@ public class DataHandler {
 	private static final String DATABASE_URL = "jdbc:sqlite:BDD.db";
 	private static Connection con = null;
 
+	public DataHandler(){
+		super();
+		initDatabaseConnection();
+	}
+	
 	public static Chanson getRandomChanson() {
 		int nbChansons = 1;
 		try{
@@ -99,7 +104,8 @@ public class DataHandler {
 		try {
 			con = DriverManager.getConnection(DATABASE_URL);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			createNewDatabase();
+			//e.printStackTrace();
 		}
 	}
 
@@ -126,6 +132,8 @@ public class DataHandler {
 			statement
 					.execute("CREATE TABLE IF NOT EXISTS Music(id INTEGER PRIMARY KEY AUTOINCREMENT, titre VARCHAR NOT NULL, auteur VARCHAR NOT NULL, best_score INT, best_user VARCHAR, categorie INT, fichier_musique VARCHAR NOT NULL, image_album VARCHAR NOT NULL);");
 
+			AddDefaultValues();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
