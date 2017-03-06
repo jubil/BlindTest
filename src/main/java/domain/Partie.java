@@ -58,7 +58,7 @@ public class Partie {
 		ArrayList<Chanson> playlist = new ArrayList<Chanson>();
 		Chanson chanson;
 		boolean isIn;
-		// TODO decomanter quand plusieurs musique en base
+		
 		while(playlist.size() < NB_CHANSON){
 			chanson = new DataHandler().getRandomChanson(this.categorie);
 			isIn = false;
@@ -72,11 +72,6 @@ public class Partie {
 				playlist.add(chanson);
 			}
 		}
-		
-		//TODO : a supprimer quand foncitonnel
-//		for(int i = 0 ; i < NB_CHANSON ; i ++){
-//			playlist.add(DataHandler.getRandomChanson(this.categorie));
-//		}
 		
 		
 		return playlist;
