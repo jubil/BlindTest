@@ -1,5 +1,7 @@
 package servlet;
 
+import infra.DataHandler;
+
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -12,7 +14,8 @@ public class Index extends HttpServlet {
 
     public Index() {
         super();
-        System.out.println("test");
+        DataHandler.createNewDatabase();
+    	DataHandler.initDatabaseConnection();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
