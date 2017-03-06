@@ -33,11 +33,11 @@ public class Inscription extends HttpServlet {
 		if (pseudo == null || password == null) {
 			response.getWriter().write("Echec de l'inscription");
 		} else {
-			// Les paramètres sont corectements saisis
+			// Les parametres sont corectements saisis
 			response.getWriter().write(pseudo + "\n" + password + "\n");
 			if (!User.isUserExist(pseudo)) {
 				// L'utilisateur a le droit de se connecter
-				response.getWriter().write("Inscription autorisée");
+				response.getWriter().write("Inscription autorisee");
 				User.inscription(pseudo, password);
 
 				// TODO rediriger vers la connection
