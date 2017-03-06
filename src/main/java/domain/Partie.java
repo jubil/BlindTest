@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
-import javax.swing.plaf.metal.MetalBorders.PaletteBorder;
-
 import infra.DataHandler;
 
 public class Partie {
@@ -16,8 +14,7 @@ public class Partie {
 	private long startPartieTime;
 	private static final int NB_CHANSON = 15;
 	private static final int TEMPS_PAR_MUSIQUE = 15000; //ms //TODO : up to 30000
-	private static final int DECALAGE_MAX_ENTRE_JOUEURS = 1000; //ms : le decalage max entre chaque joueur
-	private static final int TEMPS_ADDITIONNEL_PREMIERE_CHANSON = 5000;
+private static final int TEMPS_ADDITIONNEL_PREMIERE_CHANSON = 5000;
 	//new Date().getTime();
 	
 	public Partie() {

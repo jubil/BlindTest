@@ -14,7 +14,8 @@ public class DataHandlerTest {
 //		dh.storeChanson(new Chanson("titre3", "auteur", "imgAlbum", "srcMusique"));
 //		dh.storeChanson(new Chanson("titre4", "auteur", "imgAlbum", "srcMusique"));
 		
-		System.out.println(dh.getRandomChanson().getTitre());
+		//System.out.println(dh.getRandomChanson().getTitre());
+		dh.getRandomChanson();
 		
 	}
 
