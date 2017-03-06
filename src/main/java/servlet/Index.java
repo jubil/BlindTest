@@ -24,7 +24,7 @@ public class Index extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("index.html");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.html");
 		dispatcher.forward(request,response);
 	}
 

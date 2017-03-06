@@ -1,0 +1,105 @@
+main { margin-top: 5em; }
+.bold { font-weight: 900 !important; }
+.italic { font-style: italic; }
+.small-caps { font-variant: small-caps; }
+.row { margin: 0; }
+.col { padding: .5em 0 !important; }
+.brand-logo { margin-left: 1.5em; }
+.bordered-left { border-left: 1px solid #666; }
+hr { margin: 1.5em 0; }
+td { padding: 0 !important; }
+
+.container .row {
+	margin-left: 0; 
+	margin-right: 0; 
+}
+
+.home-img {
+    background-image: url(../image/bg_accueil.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*background-position: 12.5%;*/
+}
+
+.cover img {
+	height: 3em;
+	width: 3em;
+}
+
+.border-orange {
+    border: 1px solid #ffb74d;
+}
+
+.card, .row-bordered {
+    transition: box-shadow .2s ease-in;
+}
+
+.card-login {
+    border: 1px solid #ffb74d;
+    width: 45% !important;
+    float: right;
+    background-color: rgba(238, 238, 238, 0.8);
+}
+
+.card-content {
+    border-radius: 0 !important;
+}
+
+input.colored:focus {
+  border-bottom: 1px solid #fb8c00 !important;
+  box-shadow: 0 1px 0 0 #fb8c00 !important; }
+
+.input-field .prefix.active, input.colored:focus + label { color: #fb8c00 !important; }
+
+a.underline {
+    position: relative;
+    text-decoration: none;
+}
+
+a.underline:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: #424242;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.25s ease-in-out 0s;
+  transition: all 0.25s ease-in-out 0s; }
+
+a.underline:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1); }
+
+.score { font-size: 75%; }
+
+.panel-main { padding: 1em !important; }
+
+.score-overview { margin-top: 1em; }
+.score-overview td {
+	border: 1px solid #aaa;
+	height: 2em;
+	width: auto;
+}
+
+.panel-scores { padding-left: 2.5em !important; }
+.panel-scores p { border-bottom: 1px solid #ffb74d; }
+
+.rules-color {
+	padding : 0px 5px;
+	margin-right: 5px;
+	border: 1px solid #333;
+}
+
+.history-detail { margin-top: .5em; }
+
+.current-score {
+	height: 3em;
+	width: 3em;
+	border: 1px solid #ddd;
+	margin-top: -1.5em;
+}

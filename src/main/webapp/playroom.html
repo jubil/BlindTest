@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+
+		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+		<link rel="stylesheet" href="resources/css/style.css">
+
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+
+		<script type="text/javascript" src="resources/scripts/app.js"></script>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
+
+	<body>
+		<nav>
+			<div class="nav-wrapper orange lighten-2">
+				<a href="#" class="brand-logo">
+					<i class="material-icons">radio</i> Massive quiz</a>
+			</div>
+		</nav>
+
+		<main>
+			<div class="container">
+				<div class="row">
+					<div class="col s12 m8 panel-main border-orange">
+						<div class="row">
+							<form id="submit-answer" autocomplete="off">
+							<div class="input-field col s10">
+								<i class="material-icons prefix">music_video</i>
+								<input id="icon_prefix" type="text" class="validate colored" name="answer" disabled>
+								<label for="icon_prefix">NOM DE L'ARTISTE OU TITRE</label>
+							</div>
+							<div class="input-field col s2"><input type="submit" class="btn orange lighten-2" value="OK"></input></div>
+							</form>
+							<div class="progress orange lighten-4">
+								<div class="determinate orange darken-4"></div>
+							</div>
+							<div class="col s12 panel-overview">
+								<span class="orange-text"><span class="nickname"></span></span><br/>
+								<span>extrait <span class="index-song"></span>/15</span>
+								<div class="full-width">
+									<span class="grey-text"><span class="general-score"></span> pts.</span>
+									<div class="right">
+										<div class="current-score"></div>
+									</div>
+								</div>
+								<table class="score-overview">
+								<tbody>
+									<tr>
+										<td></td><td></td><td></td><td></td><td></td>
+										<td></td><td></td><td></td><td></td><td></td>
+										<td></td><td></td><td></td><td></td><td></td>
+									</tr>
+								</tbody>
+								</table>
+							</div>
+							<div class="col s12 m6 panel-history">
+								<p class="bold small-caps">historique</p>
+								<hr/>
+								<table>
+								<tbody class="history">
+									<!-- <tr class="history-detail">
+										<td class="cover"><img src="" height="1em" />
+										<td class="info">
+											<span class="bold orange-text text-lighten-2">artiste</span><br/>
+											<span>titre</span>
+										</td>
+									</tr> -->
+								</tbody>
+								</table>
+							</div>
+							<div class="col s12 m6 panel-rules">
+								<p class="bold small-caps">regles</p>
+								<hr/>
+								<ul class="browser-default">
+									<li>Une partie est divisée en 15 extraits. Tu as 20 secondes pour découvrir le titre et l'artiste diffusé</li>
+									<li>Tu gagnes 1 point si tu trouves l'artiste ou le titre.</li>
+									<li>Tu peux gagner des points bonus si tu enchaines les bonnes réponses.</li>
+								</ul>
+								<hr/>
+								<ul>
+										<li><span class="rules-color grey">&nbsp;</span>Le joueur n'a rien trouvé</li>
+										<li><span class="rules-color green">&nbsp;</span>Le joueur a trouvé l'artiste</li>
+										<li><span class="rules-color blue">&nbsp;</span>Le joueur a trouvé le titre</li>
+										<li><span class="rules-color orange">&nbsp;</span>Le joueur a tout trouvé</li>
+										<li>Les trois premiers joueurs gagnent chacun 1 point bonus</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col s6 m4 offset-s3 panel-scores">
+						<p class="orange-text text-lighten-2 small-caps bold">Classement général</p>
+						<table>
+						<tbody class="score-all">
+							<!-- <tr><td>tamer <span class="score lightgrey-text italic">12 pts.</span></td></tr> -->
+						</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>
