@@ -22,14 +22,12 @@
 			title = currentSong.chanson.titre,
 			author = currentSong.chanson.auteur
 
-		console.log(title, "-", author, "-", answer)
-			
 		//console.log('title', compareStrings(title, answer))
 		//console.log('author', compareStrings(author, answer))
 
 		let titleComparison, authorComparison
-		try { titleComparison = compareStrings(title, answer) } catch() {}
-		try { authorComparison = compareStrings(author, answer) } catch() {}
+		try { titleComparison = compareStrings(title, answer) } catch(e) { titleComparison = [0,0] }
+		try { authorComparison = compareStrings(author, answer) } catch(e) { authorComparison = [0,0] }
 		
 		if(titleComparison[0] > 75 || titleComparison[1] > 75) {
 			currentScore[0]=1
@@ -48,7 +46,7 @@
 		} else if(currentScore.join('')==='11') {
 			$('.current-score').removeClass('green blue orange white').addClass('orange').html('')
 			responseT1 = performance.now()
-			console.log(responseT1 - responseT0)
+			console.log(responseT1 - responseT0, "ms to answer")
 		}
 	}
 
@@ -57,7 +55,7 @@
 			type: 'GET',
 			url: 'http://localhost:8080/BlindTest/GestionPartie'
 		}).done(function(json) {
-			/**/console.log(json)
+			//console.log(json)
 
 			$.ajax({
 			type: 'POST',
@@ -75,7 +73,7 @@
 		$('.general-score').html(0)
 		currentSong = json
 
-		/**/console.log('starting song in '+json.waitingTime+'ms')
+		//console.log('starting song in '+json.waitingTime+'ms')
 		let w = 0
 		setTimeout(playSong, json.waitingTime)
 		preSong_interval = setInterval(function() {
@@ -88,7 +86,6 @@
 		/**/console.log('playing ', currentSong.chanson.auteur, currentSong.chanson.titre)
 		$('input[name="answer"]').prop('disabled', false)
 		$('input[name="answer"]').focus()
-		console.log("*** TAMER", currentSong.chanson.adresseChanson)
 		$('body').append('<audio autoplay><source src="'+currentSong.chanson.adresseChanson+'" type="audio/mp3"></audio>')
 		$('.determinate').css('width', '0%')
 		clearInterval(preSong_interval)
@@ -124,7 +121,7 @@
 			url: 'http://localhost:8080/BlindTest/StatistiquePartie',
 			data: { "find": score, "findingTime": (responseT1-responseT0) }
 		}).done(function(json) {
-			/**/console.log(json)
+			//console.log(json)
 
 			$('.current-score').removeClass('green blue orange').addClass('white').html('')
 			currentScore = [0,0]
@@ -168,20 +165,21 @@
 	}
 
 	function compareStrings(source, input) {
-		console.log("****", source, input)
 		source = source || ''
 		input = input || ''
 		let a = Math.round(100 * (1 - (getEditDistance(source, input) / source.length))),
 			rate1 = a,
-			arr = source.split(' '),
-			arr_ = input.split(' '),
+			/*arr = source.split(' '),
+			arr_ = input.split(' '),*/
 			moyenne = 0,
 			j = 0
-		arr.forEach((e, i) => {
+		console.log(source.replace('\s', '').toLowerCase(), input.replace('\s', '').toLowerCase())
+		var aa = getEditDistance(source.replace('\s', '').toLowerCase(), input.replace('\s', '').toLowerCase())
+		/*arr.forEach((e, i) => {
 			var a = getEditDistance(e, arr_[i])
 			moyenne += a / e.length
 			j++
-		})
+		})*/
 		let rate2 = Math.round(100 * (1 - (moyenne / j)))
 		return [rate1, rate2]
 	}
