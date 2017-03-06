@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
-import javax.swing.plaf.metal.MetalBorders.PaletteBorder;
-
 import infra.DataHandler;
 
 public class Partie {
@@ -15,9 +13,8 @@ public class Partie {
 	private HashMap<String, HistoriqueUserPartie> scores;
 	private long startPartieTime;
 	private static final int NB_CHANSON = 15;
-	private static final int TEMPS_PAR_MUSIQUE = 15000; //ms //TODO : up to 30000
-	private static final int DECALAGE_MAX_ENTRE_JOUEURS = 1000; //ms : le decalage max entre chaque joueur
-	private static final int TEMPS_ADDITIONNEL_PREMIERE_CHANSON = 5000;
+	private static final int TEMPS_PAR_MUSIQUE = 30000; 
+private static final int TEMPS_ADDITIONNEL_PREMIERE_CHANSON = 5000;
 	//new Date().getTime();
 	
 	public Partie() {
@@ -89,7 +86,6 @@ public class Partie {
 		
 		System.out.println("indexCourant : " + this.indexChansonCourante);
 		
-		// TODO verifier que le pseudo est bien enregistrer dans les joueurs;
 		return "{\"indexPlaylist\" : \"" + this.indexChansonCourante +
 				"\", \"waitingTime\" : \"" + (this.getWaitingTime() ) +
 				"\", \"chanson\" : " + this.chansons.get((int)this.indexChansonCourante).toJson() +

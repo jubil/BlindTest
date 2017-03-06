@@ -37,21 +37,21 @@ public class User implements Serializable {
 		return stats;
 	}
 
-	// TODO isUserExist
+	// isUserExist
 	public static boolean isUserExist(String pseudo) {
 		return DataHandler.isUserExist(pseudo);
 	}
 
-	// TODO connection
+	// connection
 	public static boolean connect(String pseudo, String password) {
 		return DataHandler.connectUser(pseudo, password);
 	}
 
-	// TODO inscription
+	// inscription
 	public static void inscription(String pseudo, String password) {
 		// Verifier si le pseudo existe
 		if (isUserExist(pseudo)) {
-			System.out.println(pseudo + " éxiste déjà");
+			System.out.println(pseudo + "User already exists");
 			return;
 		}
 		DataHandler.storeUser(new User(pseudo, password));	
