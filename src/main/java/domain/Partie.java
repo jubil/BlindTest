@@ -73,7 +73,6 @@ public class Partie {
 			}
 		}
 		
-		
 		return playlist;
 	}
 

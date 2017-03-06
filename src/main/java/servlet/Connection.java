@@ -4,6 +4,7 @@ import infra.DataHandler;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,8 +26,13 @@ public class Connection extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Nouvelle connexion : ");
+		
 		String pseudo = request.getParameter("pseudo");
 		String password = request.getParameter("password");
+		
+		System.out.println("pseudo:" + pseudo);
+		System.out.println("password:" + password);
 		
 		if(pseudo == null || password == null){
 			response.getWriter().write("Echec de connection");
@@ -37,6 +43,10 @@ public class Connection extends HttpServlet {
 				//L'utilisateur a le droit de se connecter
 				response.getWriter().write("Connection autorisée");
 				request.getSession().setAttribute("pseudo", pseudo);
+				
+
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/playroom.html");
+				dispatcher.forward(request,response);
 				
 			}else {
 				//Le couple pseudo password n'est pas correcte

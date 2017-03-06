@@ -4,6 +4,7 @@ import infra.DataHandler;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -40,8 +41,10 @@ public class Inscription extends HttpServlet {
 				response.getWriter().write("Inscription autorisee");
 				User.inscription(pseudo, password);
 
-				// TODO rediriger vers la connection
 				request.getSession().setAttribute("pseudo", pseudo);
+				
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/playroom.html");
+				dispatcher.forward(request,response);
 
 			} else {
 				// Le couple pseudo password n'est pas correcte
