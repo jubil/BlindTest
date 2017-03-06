@@ -59,24 +59,24 @@ public class Partie {
 		Chanson chanson;
 		boolean isIn;
 		// TODO decomanter quand plusieurs musique en base
-//		while(playlist.size() < NB_CHANSON){
-//			chanson = new DataHandler().getRandomChanson(this.categorie);
-//			isIn = false;
-//			for(int i = 0 ; i < playlist.size(); i ++){
-//				if( chanson.getTitre().equals(playlist.get(i).getTitre())){
-//					isIn = true;
-//					break;
-//				}
-//			}
-//			if(!isIn){
-//				playlist.add(chanson);
-//			}
-//		}
+		while(playlist.size() < NB_CHANSON){
+			chanson = new DataHandler().getRandomChanson(this.categorie);
+			isIn = false;
+			for(int i = 0 ; i < playlist.size(); i ++){
+				if( chanson.getTitre().equals(playlist.get(i).getTitre())){
+					isIn = true;
+					break;
+				}
+			}
+			if(!isIn){
+				playlist.add(chanson);
+			}
+		}
 		
 		//TODO : a supprimer quand foncitonnel
-		for(int i = 0 ; i < NB_CHANSON ; i ++){
-			playlist.add(DataHandler.getRandomChanson(this.categorie));
-		}
+//		for(int i = 0 ; i < NB_CHANSON ; i ++){
+//			playlist.add(DataHandler.getRandomChanson(this.categorie));
+//		}
 		
 		
 		return playlist;
@@ -96,7 +96,7 @@ public class Partie {
 		}
 		
 		// on verifi si la partie est fini et qu'on demande une nouvelle chanson :
-		// on réinitialise la partie
+		// on rï¿½initialise la partie
 		if(this.indexChansonCourante >= NB_CHANSON){
 			this.reinitialisation();
 		}
@@ -114,7 +114,7 @@ public class Partie {
 
 	/*
 	 * Attend le temps qu'il faut pour repondre a tous en meme temps;
-	 * si la partie est fini, alors réinitialise la partie
+	 * si la partie est fini, alors rï¿½initialise la partie
 	 */
 	public long getWaitingTime() {
 		
