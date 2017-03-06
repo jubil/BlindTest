@@ -86,7 +86,6 @@ private static final int TEMPS_ADDITIONNEL_PREMIERE_CHANSON = 5000;
 		
 		System.out.println("indexCourant : " + this.indexChansonCourante);
 		
-		// TODO verifier que le pseudo est bien enregistrer dans les joueurs;
 		return "{\"indexPlaylist\" : \"" + this.indexChansonCourante +
 				"\", \"waitingTime\" : \"" + (this.getWaitingTime() ) +
 				"\", \"chanson\" : " + this.chansons.get((int)this.indexChansonCourante).toJson() +

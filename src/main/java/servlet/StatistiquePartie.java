@@ -24,14 +24,13 @@ public class StatistiquePartie extends HttpServlet {
      */
     public StatistiquePartie() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		response.setContentType("application/json");
 		response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin"));
 		PrintWriter out = response.getWriter();
@@ -75,7 +74,6 @@ public class StatistiquePartie extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
