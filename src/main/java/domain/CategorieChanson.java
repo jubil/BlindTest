@@ -2,7 +2,7 @@ package domain;
 
 public enum CategorieChanson {
 	
-	FACILE(0, "Facile"), DIFFICILE(1, "Difficile"), INTERNET(2, "Internet"), ANNEE80(3, "Années 80");
+	FACILE(0, "Facile"), DIFFICILE(1, "Difficile"), INTERNET(2, "Internet"), ANNEE80(3, "Annees 80");
 	
 	private int idCategorie;
 	private String intitule;
@@ -26,7 +26,17 @@ public enum CategorieChanson {
 				return cc;
 			}
 		}
-		//Valeur par défaut
+		//Valeur par defaut
+		return FACILE;
+	}
+	
+	public static CategorieChanson StringToCategorie(String i){
+		for(CategorieChanson cc : CategorieChanson.values()){
+			if(cc.getIntitule() == i){
+				return cc;
+			}
+		}
+		//Valeur par defaut
 		return FACILE;
 	}
 	
