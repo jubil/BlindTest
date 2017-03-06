@@ -13,7 +13,7 @@ public class Partie {
 	private HashMap<String, HistoriqueUserPartie> scores;
 	private long startPartieTime;
 	private static final int NB_CHANSON = 15;
-	private static final int TEMPS_PAR_MUSIQUE = 15000; //ms //TODO : up to 30000
+	private static final int TEMPS_PAR_MUSIQUE = 30000; 
 private static final int TEMPS_ADDITIONNEL_PREMIERE_CHANSON = 5000;
 	//new Date().getTime();
 	
