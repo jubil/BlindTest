@@ -22,11 +22,15 @@
 			title = currentSong.chanson.titre,
 			author = currentSong.chanson.auteur
 
-		/**/console.log('title', compareStrings(title, answer))
-		/**/console.log('author', compareStrings(author, answer))
+		console.log(title, "-", author, "-", answer)
+			
+		//console.log('title', compareStrings(title, answer))
+		//console.log('author', compareStrings(author, answer))
 
-		var titleComparison = compareStrings(title, answer),
-			authorComparison = compareStrings(author, answer)
+		let titleComparison, authorComparison
+		try { titleComparison = compareStrings(title, answer) } catch() {}
+		try { authorComparison = compareStrings(author, answer) } catch() {}
+		
 		if(titleComparison[0] > 75 || titleComparison[1] > 75) {
 			currentScore[0]=1
 		} else if(authorComparison[0] > 75 || authorComparison[1] > 75) {
@@ -84,7 +88,8 @@
 		/**/console.log('playing ', currentSong.chanson.auteur, currentSong.chanson.titre)
 		$('input[name="answer"]').prop('disabled', false)
 		$('input[name="answer"]').focus()
-		$('body').append('<audio autoplay><source src="resources/'+currentSong.chanson.adresseChanson+'" type="audio/mp3"></audio>')
+		console.log("*** TAMER", currentSong.chanson.adresseChanson)
+		$('body').append('<audio autoplay><source src="'+currentSong.chanson.adresseChanson+'" type="audio/mp3"></audio>')
 		$('.determinate').css('width', '0%')
 		clearInterval(preSong_interval)
 		responseT0 = performance.now()
@@ -163,6 +168,7 @@
 	}
 
 	function compareStrings(source, input) {
+		console.log("****", source, input)
 		source = source || ''
 		input = input || ''
 		let a = Math.round(100 * (1 - (getEditDistance(source, input) / source.length))),
