@@ -13,70 +13,28 @@
 	<body>
 	
 		<nav>
-		    <div class="nav-wrapper">
-		   		<a class="medium material-icons">hearing</a>
-		    	<a href="#" class="brand-logo">Blind Test !</a>
-		    	<ul id="nav-mobile" class="right hide-on-med-and-down">
-		        	<!--<li><a href="sass.html">Sass</a></li>
-		        	<li><a href="badges.html">Components</a></li>
-		        	<li><a href="collapsible.html">JavaScript</a></li>-->
-		      	</ul>
-		    </div>
-	  	</nav>
+			<div class="nav-wrapper orange lighten-2">
+				<a href="#" class="brand-logo">
+					<i class="material-icons">radio</i> Massive quiz</a>
+			</div>
+		</nav>
 
 		<div id="center" align="center">
 			<p id="titre"> INSCRIPTION </p>
-			<form action="" method="post">
-			<table>
-			   <tr>
-			       <td>
-			       		<div class="input-field col s6">
-          					<input id="pseudo" type="text" class="validate">
-          					<label for="pseudo">Entrez un pseudo</label>
-        				</div>
-        			</td>
-			   </tr>
-			   <tr>
-				   <td>
-				   		<div class="input-field col s6">
-	         				<input id="mdp" type="text" class="validate">
-	          				<label for="mdp">Entrez un mot de passe</label>
-        				</div>
-        			</td>
-			   </tr>
-			</table>
-			<button id="butInsCo" class="btn waves-effect waves-light" type="submit" name="action">S'enregistrer<i class="material-icons right">send</i></button>
-
+			<form action="/BlindTest/Inscription" method="post">
+			<div class="row">
+				<div class="input-field col s6">
+          			<input name="pseudo" id="pseudo" type="text" class="validate colored">
+          			<label for="pseudo">Entrez un pseudo</label>
+        		</div>
+		   		<div class="input-field col s6">
+       				<input name="password" id="mdp" type="text" class="validate colored">
+       				<label for="mdp">Entrez un mot de passe</label>
+   				</div>
+			</div>
+			<button id="butInsCo" class="btn waves-effect waves-light" type="submit" name="action">
+				S'enregistrer<i class="material-icons right">send</i></button>
 			</form>
 		</div>
-        
-     
-		<!--<footer class="page-footer">
-          <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">Blind Test</h5>
-                <p class="grey-text text-lighten-4">Le jeu oÃ¹ c'est Ã  vous de deviner le nom du morceau, ainsi que le chanteur !</p>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Liens</h5>
-                <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Présentation</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Nous contacter</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Aide</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="footer-copyright">
-            <div class="container">
-            Â© 2014 Copyright Text
-           <a class="grey-text text-lighten-4 right" href="#!">More Links</a>-->
-            </div>
-          </div>
-        </footer>
-            
-
-
 	</body>
 </html>
