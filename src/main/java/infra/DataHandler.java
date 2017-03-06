@@ -50,6 +50,31 @@ public class DataHandler {
 		return null;
 		
 	}
+	
+	public static Chanson getRandomChanson(int categorie) {
+		if (con == null) {
+			initDatabaseConnection();
+		}
+		try{
+			//Calcul du nombre de chansons
+			Statement statement = con.createStatement();
+			ResultSet rs = statement.executeQuery("SELECT * FROM Music WHERE categorie="+categorie+" ORDER BY RANDOM() LIMIT 1;");
+			
+			while (rs.next()) {
+				return new Chanson(rs.getString("titre"), rs.getString("auteur"), CategorieChanson.intToCategorie(rs.getInt("categorie")), rs.getString("image_album"), rs.getString("fichier_musique"));
+			}
+			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		//Normalement jamais atteint
+		return null;
+	}
+	
+	public static Chanson getRandomChanson(CategorieChanson categorie) {
+		return getRandomChanson(categorie.getIdCategorie());
+	}
 
 	public static void storeChanson(Chanson c) {
 		if (con == null) {
@@ -127,7 +152,7 @@ public class DataHandler {
 			}
 
 			con = DriverManager.getConnection(DATABASE_URL);
-
+			System.out.println(con);
 			Statement statement = con.createStatement();
 			statement
 					.execute("CREATE TABLE IF NOT EXISTS User(pseudo VARCHAR PRIMARY KEY, password VARCHAR);");
