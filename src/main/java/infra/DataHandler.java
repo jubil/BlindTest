@@ -172,7 +172,7 @@ public class DataHandler {
 		storeUser(new User("admin", "admin"));
 		storeUser(new User("val", "123"));
 		
-		storeChanson(new Chanson("Hangover","Alestorm","https://images.genius.com/2b948edc89085b00d2b46e3a27984fcd.960x960x1.jpg","/BlindTest/chansons/Alestorm_Hangover.mp3"));
+		storeChanson(new Chanson("Hangover","Alestorm","https://images.genius.com/2b948edc89085b00d2b46e3a27984fcd.960x960x1.jpg","chansons/Alestorm_Hangover.mp3"));
 	}
 
 	// A VERIFIER
