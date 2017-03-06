@@ -4,6 +4,7 @@ import infra.DataHandler;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +24,8 @@ public class Index extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().write("Servlet Index");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("index.html");
+		dispatcher.forward(request,response);
 	}
 
 }
