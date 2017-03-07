@@ -55,14 +55,14 @@
 	function requestSong() {
 		$.ajax({
 			type: 'GET',
-			url: 'http://localhost:8080/BlindTest/GestionPartie'
+			url: '/BlindTest/GestionPartie'
 		}).done(function(json) {
 			//console.log(json)
 			
 			if(json.indexPlaylist==0)
 				$.ajax({
 					type: 'GET',
-					url: 'http://localhost:8080/BlindTest/StatistiquePartie'
+					url: '/BlindTest/StatistiquePartie'
 				}).done(function(json_) {
 					$('.nickname').html(json_.yourClassement.pseudo)
 					processSong(json)
@@ -127,7 +127,7 @@
 		if(timer > 30000) timer = 30000
 		$.ajax({
 			type: 'POST',
-			url: 'http://localhost:8080/BlindTest/StatistiquePartie',
+			url: '/BlindTest/StatistiquePartie',
 			data: { "find": score, "findingTime": timer }
 		}).done(function(json) {
 			console.log(json)
@@ -139,6 +139,7 @@
 
 
 			if(currentSong.indexPlaylist==14) {
+				$('#modal1').modal().modal('open');
 				clearPanels()
 			}
 			requestSong()
