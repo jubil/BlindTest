@@ -7,28 +7,33 @@
 
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-  
-  		<script type="text/javascript" src="resources/scripts/DemandeMusic.js"></script>
+		
+  		<script type="text/javascript" src="resources/scripts/GetScore.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	</head>
 	<body>  
-		<a class="modal-trigger waves-effect waves-light btn" href="#modal1">Modal</a>
-
-			  <!-- Modal Structure -->
-	<div id="modal1" class="modal modal-fixed-footer">
-		<div class="modal-content">
-			<div id="centerModal" align="center">
-			<p id="titre"> Classement général </p>
-			<form action="" method="post">
-			<table id="scoreFin">
-			</table>
+		<div id="modal1" class="modal modal-fixed-footer">
+			<div class="modal-content">
+				<div id="centerModal" align="center">
+					<p id="titre"> Classement général </p>
+					<form action="" method="post">
+						<table id="scorePerso"></table>
+						<table id="scoreFin"></table>
+					</form>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Quitter</a>
+				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Rejouer</a>
+			</div>
 		</div>
-			    </div>
-			    <div class="modal-footer">
-			      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Quitter</a>
-			      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Rejouer</a>
-			    </div>
-			  </div>
+
+		<script>
+			 $(document).ready(function(){
+			 // the "href" attribute of .modal-trigger must specify the modal ID that   wants to be triggered
+			 $('#modal1').modal().modal('open');
+			 });
+		</script>
 
 	</body>
 </html>

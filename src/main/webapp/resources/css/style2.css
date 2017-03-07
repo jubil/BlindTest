@@ -4,17 +4,11 @@
     background-color: #f5f5f5;
 }
 
-input.colored:focus {
-  border-bottom: 1px solid #fb8c00 !important;
-  box-shadow: 0 1px 0 0 #fb8c00 !important; }
-
-.input-field .prefix.active, input.colored:focus + label { color: #fb8c00 !important; }
-
 body {
     margin: 2px 0;
 }
 
-nav, footer{
+nav{
     background-color: #ffb74d !important;
 }
 
@@ -42,9 +36,49 @@ nav, footer{
 #titre {
 	font-family: font-family:, serif;
     font-weight: bold;
+    color: #ffb74d;
 }
 
 #butInsCo {
         background-color: #f57c00;
 }
 
+#score {
+    width:0 !important;
+}
+
+.position {
+    padding-right: 10px;
+    font-size: 26px;
+    width: 23%;
+    text-align: right;
+}
+
+.user {
+    width: 45%;
+    padding-left: 8%;
+}
+
+#centerModal {
+     background-color: #f5f5f5;
+}   
+
+tr {
+    line-height: 0%;
+}
+
+#ligneClass {
+    padding-left: 14%;
+}
+
+#lignePerso {
+    background-color: #ffb74d;
+    color: white;
+}
+
+#pos {
+    text-align: center;
+}
+
+tr:nth-child(odd) {background:#eeeeee}
+tr:nth-child(even) {background: #FFF}

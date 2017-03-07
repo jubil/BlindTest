@@ -173,14 +173,14 @@ public class DataHandler {
 		storeUser(new User("val", "123"));
 		
 		storeChanson(new Chanson("Hangover","Alestorm","https://images.genius.com/2b948edc89085b00d2b46e3a27984fcd.960x960x1.jpg","chansons/0000.mp3"));
-		storeChanson(new Chanson("Thunderstruck","ACDC","","chansons/0001.mp3"));
+		storeChanson(new Chanson("Thunderstruck","AC/DC","","chansons/0001.mp3"));
 		storeChanson(new Chanson("Do I Wanna Know","Arctic Monkeys","","chansons/0002.mp3"));
-		storeChanson(new Chanson("Song2","Blur","","chansons/0003.mp3"));
-		storeChanson(new Chanson("It's My Life","Bon JoviBon Jovi","","chansons/0004.mp3"));
+		storeChanson(new Chanson("Song 2","Blur","","chansons/0003.mp3"));
+		storeChanson(new Chanson("It s My Life","Bon JoviBon Jovi","","chansons/0004.mp3"));
 		storeChanson(new Chanson("Safe And Sound","Capital Cities","","chansons/0005.mp3"));
 		storeChanson(new Chanson("Paradise","Coldplay","","chansons/0006.mp3"));
 		storeChanson(new Chanson("Viva La Vida","Coldplay","","chansons/0007.mp3"));
-		storeChanson(new Chanson("Gangster's Paradise","Coolio","","chansons/0008.mp3"));
+		storeChanson(new Chanson("Gangster s Paradise","Coolio","","chansons/0008.mp3"));
 		storeChanson(new Chanson("Insane In The Brain","Cypress Hill","","chansons/0009.mp3"));
 		storeChanson(new Chanson("Aerodynamic","Daft Punk","","chansons/0010.mp3"));
 		storeChanson(new Chanson("One More Time","Daft Punk","","chansons/0011.mp3"));
@@ -188,15 +188,43 @@ public class DataHandler {
 		storeChanson(new Chanson("Still DRE ft Snoop Dogg","Dr Dre","","chansons/0013.mp3"));
 		storeChanson(new Chanson("Lose Yourself","Eminem","","chansons/0014.mp3"));
 		storeChanson(new Chanson("The Real Slim Shady","Eminem","","chansons/0015.mp3"));
-		storeChanson(new Chanson("Dance, Dance","Fall Out Boys","","chansons/0016.mp3"));
+		storeChanson(new Chanson("Dance Dance","Fall Out Boys","","chansons/0016.mp3"));
 		storeChanson(new Chanson("Feel Good Inc","Gorillaz","","chansons/0017.mp3"));
 		storeChanson(new Chanson("The Pretender","Foo Fighters","","chansons/0018.mp3"));
 		storeChanson(new Chanson("Clint Eastwood","Gorillaz","","chansons/0019.mp3"));
 		storeChanson(new Chanson("Just Jammin","Gramatik","","chansons/0020.mp3"));
-		storeChanson(new Chanson("J'ai demandé à la lune","Indochine","","chansons/0021.mp3"));
+		storeChanson(new Chanson("J ai demande a la lune","Indochine","","chansons/0021.mp3"));
 		storeChanson(new Chanson("I Was Made For Loving You","KISS","","chansons/0022.mp3"));
 		storeChanson(new Chanson("Sorry For Party Rocking","LMFAO","","chansons/0023.mp3"));
-		storeChanson(new Chanson("J't'emmène au vent","Louise Attaque","","chansons/0024.mp3"));
+		storeChanson(new Chanson("J t emmene au vent","Louise Attaque","","chansons/0024.mp3"));
+		
+		storeChanson(new Chanson("Thrift shop","Macklemore","","chansons/0025.mp3"));
+		storeChanson(new Chanson("Clandestino","Manu Chao","","chansons/0026.mp3"));
+		storeChanson(new Chanson("Kids","MGMT","","chansons/0027.mp3"));
+		storeChanson(new Chanson("Time to pretend","MGMT","","chansons/0028.mp3"));
+		storeChanson(new Chanson("Beat it","Mickael Jackson","","chansons/0029.mp3"));
+		storeChanson(new Chanson("Respire","Mickey 3D","","chansons/0030.mp3"));
+		storeChanson(new Chanson("Hysteria","Muse","","chansons/0031.mp3"));
+		storeChanson(new Chanson("Uprising","Muse","","chansons/0032.mp3"));
+		storeChanson(new Chanson("Smells Like Teen Spirit","Nirvana","","chansons/0033.mp3"));
+		storeChanson(new Chanson("hey Ya","OutKast","","chansons/0034.mp3"));
+		storeChanson(new Chanson("All Night","Parov Stelar","","chansons/0035.mp3"));
+		storeChanson(new Chanson("Californiacation","Red hot Chili Pepper","","chansons/0036.mp3"));
+		storeChanson(new Chanson("Can't Stop","Red hot Chili Pepper","","chansons/0037.mp3"));
+		storeChanson(new Chanson("Jeune et Con","Saez","","chansons/0038.mp3"));
+		storeChanson(new Chanson("Alors on Danse","Stromae","","chansons/0039.mp3"));
+		storeChanson(new Chanson("Stupeflip Vite","Stupeflip","","chansons/0040.mp3"));
+		storeChanson(new Chanson("Ca","Telephone","","chansons/0041.mp3"));
+		storeChanson(new Chanson("Un Autre Monde","Telephone","","chansons/0042.mp3"));
+		storeChanson(new Chanson("Pump It","The Black Eyes Peas","","chansons/0043.mp3"));
+		storeChanson(new Chanson("I Can't Get No","The Rolling Stones","","chansons/0044.mp3"));
+		storeChanson(new Chanson("Seven Nation Army","The White Stripes","","chansons/0045.mp3"));
+		storeChanson(new Chanson("L'hymne de nos campagnes","Tryo","","chansons/0046.mp3"));
+		storeChanson(new Chanson("Ride","Twenty One Pilots","","chansons/0047.mp3"));
+		storeChanson(new Chanson("Stressed Out","Twenty One Pilots","","chansons/0048.mp3"));
+		
+		
+		
 	}
 
 	// A VERIFIER
