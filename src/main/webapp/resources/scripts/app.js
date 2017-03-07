@@ -29,9 +29,9 @@
 		try { titleComparison = compareStrings(title, answer) } catch(e) { titleComparison = [0,0] }
 		try { authorComparison = compareStrings(author, answer) } catch(e) { authorComparison = [0,0] }
 		
-		if(titleComparison > 75) {
+		if(titleComparison > 70) {
 			currentScore[0]=1
-		} else if(authorComparison > 75) {
+		} else if(authorComparison > 70) {
 			currentScore[1]=1
 		} else {
 			Materialize.toast('Mauvaise réponse', 2000)
@@ -62,7 +62,7 @@
 			$.ajax({
 			type: 'POST',
 			url: 'http://localhost:8080/BlindTest/StatistiquePartie',
-			data: { "find": score, "findingTime": parseInt(responseT1 - responseT0) }
+			data: { "find": 0, "findingTime": 0 }
 			}).done(function(json_) {
 				$('.nickname').html(json_.yourClassement.pseudo)
 				processSong(json)
@@ -112,18 +112,22 @@
 		} else if(currentScore.join('')==='11') {
 			$($('.score-overview').find('td')[--currentSong.indexPlaylist]).addClass('orange')
 			score=3
+		} else {
+			$($('.score-overview').find('td')[--currentSong.indexPlaylist]).addClass('lightgrey')
+			score=0
 		}
 
 		/**/console.log("**score", score)
+		/**/console.log("**time", parseInt(responseT1-responseT0))
 
 		updateHistory()
 
 		$.ajax({
 			type: 'POST',
 			url: 'http://localhost:8080/BlindTest/StatistiquePartie',
-			data: { "find": score, "findingTime": (responseT1-responseT0) }
+			data: { "find": score, "findingTime": parseInt(responseT1-responseT0) }
 		}).done(function(json) {
-			//console.log(json)
+			console.log(json)
 
 			$('.current-score').removeClass('green blue orange').addClass('white').html('')
 			currentScore = [0,0]
