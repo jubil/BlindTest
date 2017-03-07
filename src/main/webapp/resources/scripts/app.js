@@ -58,15 +58,15 @@
 			url: 'http://localhost:8080/BlindTest/GestionPartie'
 		}).done(function(json) {
 			//console.log(json)
-
-			$.ajax({
-			type: 'POST',
-			url: 'http://localhost:8080/BlindTest/StatistiquePartie',
-			data: { "find": 0, "findingTime": 0 }
-			}).done(function(json_) {
-				$('.nickname').html(json_.yourClassement.pseudo)
-				processSong(json)
-			})
+			
+			if(json.indexPlaylist==0)
+				$.ajax({
+					type: 'GET',
+					url: 'http://localhost:8080/BlindTest/StatistiquePartie'
+				}).done(function(json_) {
+					$('.nickname').html(json_.yourClassement.pseudo)
+					processSong(json)
+				})
 		})
 	}
 
