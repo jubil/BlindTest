@@ -67,6 +67,7 @@
 					$('.nickname').html(json_.yourClassement.pseudo)
 					processSong(json)
 				})
+			else processSong(json)
 		})
 	}
 
