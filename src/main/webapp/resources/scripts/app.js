@@ -122,10 +122,13 @@
 
 		updateHistory()
 
+		let timer = parseInt(responseT1-responseT0)
+		if(timer < 0) timer = Math.abs(timer)
+		if(timer > 30000) timer = 30000
 		$.ajax({
 			type: 'POST',
 			url: 'http://localhost:8080/BlindTest/StatistiquePartie',
-			data: { "find": score, "findingTime": parseInt(responseT1-responseT0) }
+			data: { "find": score, "findingTime": timer }
 		}).done(function(json) {
 			console.log(json)
 
