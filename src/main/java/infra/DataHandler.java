@@ -13,8 +13,8 @@ import domain.User;
 
 public class DataHandler {
 
-	// private static final String DATABASE_URL = "jdbc:sqlite:BDD.db";
-	private static final String DATABASE_URL = "jdbc:sqlite:C:\\Users\\Matthieu\\BDD.db";
+	private static final String DATABASE_URL = "jdbc:sqlite:BDD.db";
+	//private static final String DATABASE_URL = "jdbc:sqlite:C:\\Users\\Matthieu\\BDD.db";
 	private static Connection con = null;
 
 	public DataHandler(){
