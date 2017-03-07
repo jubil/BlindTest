@@ -29,10 +29,12 @@
 		try { titleComparison = compareStrings(title, answer) } catch(e) { titleComparison = [0,0] }
 		try { authorComparison = compareStrings(author, answer) } catch(e) { authorComparison = [0,0] }
 		
-		if(titleComparison[0] > 75 || titleComparison[1] > 75) {
+		if(titleComparison > 75) {
 			currentScore[0]=1
-		} else if(authorComparison[0] > 75 || authorComparison[1] > 75) {
+		} else if(authorComparison > 75) {
 			currentScore[1]=1
+		} else {
+			Materialize.toast('Mauvaise réponse', 2000)
 		}
 		updateScoreFrame()
 		$('input[name="answer"]').val('').focus()
@@ -46,7 +48,7 @@
 		} else if(currentScore.join('')==='11') {
 			$('.current-score').removeClass('green blue orange white').addClass('orange').html('')
 			responseT1 = performance.now()
-			console.log(responseT1 - responseT0, "ms to answer")
+			console.log(parseInt(responseT1 - responseT0), "ms to answer")
 		}
 	}
 
@@ -60,7 +62,7 @@
 			$.ajax({
 			type: 'POST',
 			url: 'http://localhost:8080/BlindTest/StatistiquePartie',
-			data: { "find": score, "findingTime": (responseT1-responseT0) }
+			data: { "find": score, "findingTime": parseInt(responseT1 - responseT0) }
 			}).done(function(json_) {
 				$('.nickname').html(json_.yourClassement.pseudo)
 				processSong(json)
@@ -129,7 +131,7 @@
 			updateScores(json)
 
 
-			if(currentSong.indexPlaylist==15) {
+			if(currentSong.indexPlaylist==14) {
 				clearPanels()
 			}
 			requestSong()
@@ -143,7 +145,7 @@
 	}
 
 	function updateHistory() {
-		$('.history').append(`
+		$('.history').prepend(`
 			<tr class="history-detail">
 				<td class="cover"><img src="${currentSong.chanson.imgAlbum}" /></td>
 				<td class="info">
@@ -167,21 +169,11 @@
 	function compareStrings(source, input) {
 		source = source || ''
 		input = input || ''
-		let a = Math.round(100 * (1 - (getEditDistance(source, input) / source.length))),
-			rate1 = a,
-			/*arr = source.split(' '),
-			arr_ = input.split(' '),*/
-			moyenne = 0,
-			j = 0
-		console.log(source.replace('\s', '').toLowerCase(), input.replace('\s', '').toLowerCase())
-		var aa = getEditDistance(source.replace('\s', '').toLowerCase(), input.replace('\s', '').toLowerCase())
-		/*arr.forEach((e, i) => {
-			var a = getEditDistance(e, arr_[i])
-			moyenne += a / e.length
-			j++
-		})*/
-		let rate2 = Math.round(100 * (1 - (moyenne / j)))
-		return [rate1, rate2]
+		source = source.replace(' ', '').toLowerCase()
+		input = input.replace(' ', '').toLowerCase()
+		console.log(source, "--", input)
+		let a = Math.round(100 * (1 - (getEditDistance(source, input) / source.length)))
+		return a
 	}
 	function getEditDistance(a, b) {
 		if (a.length == 0 || b.length == 0) return NaN;
