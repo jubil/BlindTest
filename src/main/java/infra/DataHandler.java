@@ -198,30 +198,30 @@ public class DataHandler {
 		storeChanson(new Chanson("Sorry For Party Rocking","LMFAO","","chansons/0023.mp3"));
 		storeChanson(new Chanson("J t emmene au vent","Louise Attaque","","chansons/0024.mp3"));
 		
-		storeChanson(new Chanson("Thrift shop","Macklemore","","chansons/0025.mp3"));
-		storeChanson(new Chanson("Clandestino","Manu Chao","","chansons/0026.mp3"));
-		storeChanson(new Chanson("Kids","MGMT","","chansons/0027.mp3"));
-		storeChanson(new Chanson("Time to pretend","MGMT","","chansons/0028.mp3"));
-		storeChanson(new Chanson("Beat it","Mickael Jackson","","chansons/0029.mp3"));
-		storeChanson(new Chanson("Respire","Mickey 3D","","chansons/0030.mp3"));
-		storeChanson(new Chanson("Hysteria","Muse","","chansons/0031.mp3"));
-		storeChanson(new Chanson("Uprising","Muse","","chansons/0032.mp3"));
-		storeChanson(new Chanson("Smells Like Teen Spirit","Nirvana","","chansons/0033.mp3"));
-		storeChanson(new Chanson("hey Ya","OutKast","","chansons/0034.mp3"));
-		storeChanson(new Chanson("All Night","Parov Stelar","","chansons/0035.mp3"));
-		storeChanson(new Chanson("Californiacation","Red hot Chili Pepper","","chansons/0036.mp3"));
-		storeChanson(new Chanson("Can't Stop","Red hot Chili Pepper","","chansons/0037.mp3"));
-		storeChanson(new Chanson("Jeune et Con","Saez","","chansons/0038.mp3"));
-		storeChanson(new Chanson("Alors on Danse","Stromae","","chansons/0039.mp3"));
-		storeChanson(new Chanson("Stupeflip Vite","Stupeflip","","chansons/0040.mp3"));
-		storeChanson(new Chanson("Ca","Telephone","","chansons/0041.mp3"));
-		storeChanson(new Chanson("Un Autre Monde","Telephone","","chansons/0042.mp3"));
-		storeChanson(new Chanson("Pump It","The Black Eyes Peas","","chansons/0043.mp3"));
-		storeChanson(new Chanson("I Can't Get No","The Rolling Stones","","chansons/0044.mp3"));
-		storeChanson(new Chanson("Seven Nation Army","The White Stripes","","chansons/0045.mp3"));
-		storeChanson(new Chanson("L'hymne de nos campagnes","Tryo","","chansons/0046.mp3"));
-		storeChanson(new Chanson("Ride","Twenty One Pilots","","chansons/0047.mp3"));
-		storeChanson(new Chanson("Stressed Out","Twenty One Pilots","","chansons/0048.mp3"));
+		storeChanson(new Chanson("Thrift shop","Macklemore","http://www.thegroundmag.com/wp-content/uploads/Macklemore.jpg","chansons/0025.mp3"));
+		storeChanson(new Chanson("Clandestino","Manu Chao","https://images-na.ssl-images-amazon.com/images/I/618BD96hvcL.jpg","chansons/0026.mp3"));
+		storeChanson(new Chanson("Kids","MGMT","https://upload.wikimedia.org/wikipedia/en/9/98/MGMT_Kids.jpg","chansons/0027.mp3"));
+		storeChanson(new Chanson("Time to pretend","MGMT","https://upload.wikimedia.org/wikipedia/en/c/cb/Time_to_Pretend_(MGMT_EP)_coverart.jpg","chansons/0028.mp3"));
+		storeChanson(new Chanson("Beat it","Mickael Jackson","http://a133.idata.over-blog.com/1/90/86/29/autres2/Michael-Jackson---Beat-it.jpg","chansons/0029.mp3"));
+		storeChanson(new Chanson("Respire","Mickey 3D","https://upload.wikimedia.org/wikipedia/en/7/7f/Respire_(Mickey_3D_single_-_cover_art).jpg","chansons/0030.mp3"));
+		storeChanson(new Chanson("Hysteria","Muse","http://muse-france.com//wp-content/uploads/sites/6657/2016/09/absolution.jpg","chansons/0031.mp3"));
+		storeChanson(new Chanson("Uprising","Muse","http://www.muse-france.fr/wp-content/uploads/2013/05/muse_the_resistance.jpg","chansons/0032.mp3"));
+		storeChanson(new Chanson("Smells Like Teen Spirit","Nirvana","http://img.cdandlp.com/2014/04/imgL/116591642.jpg","chansons/0033.mp3"));
+		storeChanson(new Chanson("hey Ya","OutKast","https://upload.wikimedia.org/wikipedia/en/e/e4/OutkastHeyYa.jpg","chansons/0034.mp3"));
+		storeChanson(new Chanson("All Night","Parov Stelar","http://img1.vmuzike.net/artist/gallery/3de/98e/171047_big.jpg","chansons/0035.mp3"));
+		storeChanson(new Chanson("Californiacation","Red hot Chili Pepper","https://upload.wikimedia.org/wikipedia/en/d/df/RedHotChiliPeppersCalifornication.jpg","chansons/0036.mp3"));
+		storeChanson(new Chanson("Can't Stop","Red hot Chili Pepper","https://upload.wikimedia.org/wikipedia/en/thumb/8/8e/RedHotChiliPeppersCantStop.jpg/220px-RedHotChiliPeppersCantStop.jpg","chansons/0037.mp3"));
+		storeChanson(new Chanson("Jeune et Con","Saez","http://s.mxmcdn.net/images-storage/albums/6/6/8/3/8/4/11483866_500_500.jpg","chansons/0038.mp3"));
+		storeChanson(new Chanson("Alors on Danse","Stromae","http://streamd.hitparade.ch/cdimages/stromae-alors_on_danse_s_2.jpg","chansons/0039.mp3"));
+		storeChanson(new Chanson("Stupeflip Vite","Stupeflip","https://images.genius.com/da6c0d3dec2ef3ac9e7f12d5bfc7d1b4.600x600x1.jpg","chansons/0040.mp3"));
+		storeChanson(new Chanson("Ca","Telephone","https://i.ytimg.com/vi/MIEu5RHjMlc/hqdefault.jpg","chansons/0041.mp3"));
+		storeChanson(new Chanson("Un Autre Monde","Telephone","https://i.ytimg.com/vi/MIEu5RHjMlc/hqdefault.jpg","chansons/0042.mp3"));
+		storeChanson(new Chanson("Pump It","The Black Eyes Peas","http://cdn.pianosheetmusiconline.com/wp-content/uploads/2012/08/Pump-It-by-Black-Eyed-Peas.jpg","chansons/0043.mp3"));
+		storeChanson(new Chanson("I Can't Get No","The Rolling Stones","http://static.fnac-static.com/multimedia/Images/FR/NR/1c/f0/6c/7139356/1540-1/tsp20150622124402/I-can-t-get-no-satisfaction-50th-anniversary.jpg","chansons/0044.mp3"));
+		storeChanson(new Chanson("Seven Nation Army","The White Stripes","https://c1.staticflickr.com/5/4142/4809763419_5d9f46f1a7_z.jpg","chansons/0045.mp3"));
+		storeChanson(new Chanson("L'hymne de nos campagnes","Tryo","http://static.qobuz.com/images/covers/85/58/0886443475885_600.jpg","chansons/0046.mp3"));
+		storeChanson(new Chanson("Ride","Twenty One Pilots","http://streamd.hitparade.ch/cdimages/twenty_one_pilots-ride_s.jpg","chansons/0047.mp3"));
+		storeChanson(new Chanson("Stressed Out","Twenty One Pilots","http://streamd.hitparade.ch/cdimages/twenty_one_pilots-ride_s.jpg","chansons/0048.mp3"));
 		
 		
 		
