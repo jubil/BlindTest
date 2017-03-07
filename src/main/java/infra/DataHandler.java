@@ -176,7 +176,7 @@ public class DataHandler {
 		storeChanson(new Chanson("Thunderstruck","AC/DC","","chansons/0001.mp3"));
 		storeChanson(new Chanson("Do I Wanna Know","Arctic Monkeys","","chansons/0002.mp3"));
 		storeChanson(new Chanson("Song 2","Blur","","chansons/0003.mp3"));
-		storeChanson(new Chanson("It s My Life","Bon JoviBon Jovi","","chansons/0004.mp3"));
+		storeChanson(new Chanson("It s My Life","Bon Jovi","","chansons/0004.mp3"));
 		storeChanson(new Chanson("Safe And Sound","Capital Cities","","chansons/0005.mp3"));
 		storeChanson(new Chanson("Paradise","Coldplay","","chansons/0006.mp3"));
 		storeChanson(new Chanson("Viva La Vida","Coldplay","","chansons/0007.mp3"));
