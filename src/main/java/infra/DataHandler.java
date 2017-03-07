@@ -185,7 +185,7 @@ public class DataHandler {
 		storeChanson(new Chanson("Aerodynamic","Daft Punk","","chansons/0010.mp3"));
 		storeChanson(new Chanson("One More Time","Daft Punk","","chansons/0011.mp3"));
 		storeChanson(new Chanson("Cake By The Ocean","DNCE","","chansons/0012.mp3"));
-		storeChanson(new Chanson("Still DRE ft Snoop Dogg","Dr Dre","","chansons/0013.mp3"));
+		storeChanson(new Chanson("Still DRE","Dr Dre","","chansons/0013.mp3"));
 		storeChanson(new Chanson("Lose Yourself","Eminem","","chansons/0014.mp3"));
 		storeChanson(new Chanson("The Real Slim Shady","Eminem","","chansons/0015.mp3"));
 		storeChanson(new Chanson("Dance Dance","Fall Out Boys","","chansons/0016.mp3"));
