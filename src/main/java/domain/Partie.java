@@ -8,6 +8,10 @@ import infra.DataHandler;
 
 public class Partie {
 
+	// SSH : 
+	// IP = 172.26.69.19 login = lpsil Mdp = wqa&xszé
+	
+	
 	private ArrayList<Chanson> chansons;
 	private long indexChansonCourante;
 	private HashMap<String, HistoriqueUserPartie> scores;
@@ -81,8 +85,8 @@ public class Partie {
 		
 		long time = new Date().getTime();
 		long tempsDepuisDebutDeLaChanson = (time - (this.startPartieTime /*+ TEMPS_ADDITIONNEL_PREMIERE_CHANSON*/)) % TEMPS_PAR_MUSIQUE;
-		System.out.println("tttt : " + tempsDepuisDebutDeLaChanson);
-		System.out.println("index : " + this.indexChansonCourante);
+		//System.out.println("tttt : " + tempsDepuisDebutDeLaChanson);
+		//System.out.println("index : " + this.indexChansonCourante);
 		if((time - this.startPartieTime) < (TEMPS_PAR_MUSIQUE /*+ TEMPS_ADDITIONNEL_PREMIERE_CHANSON*/)){
 			this.indexChansonCourante = 0 ;
 		}else{

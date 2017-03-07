@@ -24,6 +24,9 @@ public class Index extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin"));
+		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.html");
 		dispatcher.forward(request,response);
 	}

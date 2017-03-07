@@ -44,9 +44,7 @@ public class Connection extends HttpServlet {
 				response.getWriter().write("Connection autorisée");
 				request.getSession().setAttribute("pseudo", pseudo);
 				
-
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/playroom.html");
-				dispatcher.forward(request,response);
+				response.sendRedirect("/BlindTest/SalleDeJeux");
 				
 			}else {
 				//Le couple pseudo password n'est pas correcte
